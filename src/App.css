@@ -1,3 +1,27 @@
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  font-size: 0.78rem;
+  color: #6b5c40;
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 5, 2, 0.85) 40%);
+  pointer-events: none;
+}
+
+.app-footer a {
+  color: #b8860b;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.app-footer a:hover {
+  color: #f0c040;
+  text-decoration: underline;
+}
+
 .app {
   min-height: 100vh;
   background-color: #080502;

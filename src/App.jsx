@@ -70,6 +70,9 @@ function App() {
           element={<EditCommanderPage commanders={commanders} onEdit={handleEdit} />}
         />
       </Routes>
+      <footer className="app-footer">
+        Made with ❤️ on <a href="https://github.com/ChristianKreuzberger/rok-commander-tracker" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </footer>
     </div>
   )
 }
