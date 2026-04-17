@@ -1,0 +1,173 @@
+{
+  "_note": "Proprietary game data from Rise of Kingdoms (Lilith Games). For personal tracking use only.",
+  "civilizations": [
+    {
+      "id": "china",
+      "name": "China",
+      "starting_commander": "Sun Tzu",
+      "special_unit": { "name": "Chu-Ko-Nu", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Building Speed", "value": "+3%" },
+        { "stat": "Hospital Healing Speed", "value": "+15%" },
+        { "stat": "Troop Training Speed", "value": "+3%" },
+        { "stat": "Troop Load", "value": "+10%" }
+      ]
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "starting_commander": "Joan of Arc",
+      "special_unit": { "name": "Throwing Axeman", "type": "Infantry" },
+      "bonuses": [
+        { "stat": "Hospital Healing Speed", "value": "+20%" },
+        { "stat": "Troop Training Speed", "value": "+6%" },
+        { "stat": "Archer Attack", "value": "+5%" },
+        { "stat": "Hospital Capacity", "value": "+10%" }
+      ]
+    },
+    {
+      "id": "germany",
+      "name": "Germany",
+      "starting_commander": "Hermann",
+      "special_unit": { "name": "Teutonic Knight", "type": "Cavalry" },
+      "bonuses": [
+        { "stat": "Infantry Attack", "value": "+5%" },
+        { "stat": "Action Points Recovery", "value": "+10%" },
+        { "stat": "Infantry Defense", "value": "+3%" }
+      ]
+    },
+    {
+      "id": "britain",
+      "name": "Britain",
+      "starting_commander": "Boudica",
+      "special_unit": { "name": "Longbowman", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Archer Attack", "value": "+5%" },
+        { "stat": "Archer Defense", "value": "+3%" },
+        { "stat": "March Speed (outside alliance territory)", "value": "+30%" }
+      ]
+    },
+    {
+      "id": "vikings",
+      "name": "Vikings",
+      "starting_commander": "Björn Ironside",
+      "special_unit": { "name": "Berserker", "type": "Infantry" },
+      "bonuses": [
+        { "stat": "Troop Load", "value": "+10%" },
+        { "stat": "Gathering Speed", "value": "+5%" },
+        { "stat": "Counter-Attack Damage", "value": "+5%" }
+      ]
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "starting_commander": "Imhotep",
+      "special_unit": { "name": "Maryannu", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Troop Training Speed", "value": "+10%" },
+        { "stat": "Hospital Healing Speed", "value": "+20%" },
+        { "stat": "Troop Load", "value": "+10%" }
+      ]
+    },
+    {
+      "id": "byzantium",
+      "name": "Byzantium",
+      "starting_commander": "Belisarius",
+      "special_unit": { "name": "Cataphract", "type": "Cavalry" },
+      "bonuses": [
+        { "stat": "Dead Units Become Severely Wounded", "value": "+10%" },
+        { "stat": "Hospital Capacity", "value": "+20%" },
+        { "stat": "Cavalry Attack", "value": "+5%" }
+      ]
+    },
+    {
+      "id": "ottoman_empire",
+      "name": "Ottoman Empire",
+      "starting_commander": "Osman I",
+      "special_unit": { "name": "Janissary", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Cavalry Attack", "value": "+5%" },
+        { "stat": "Hospital Healing Speed", "value": "+15%" },
+        { "stat": "Troop Attack", "value": "+3%" }
+      ]
+    },
+    {
+      "id": "arabia",
+      "name": "Arabia",
+      "starting_commander": "Baibars",
+      "special_unit": { "name": "Mamluk", "type": "Cavalry" },
+      "bonuses": [
+        { "stat": "Cavalry Defense", "value": "+3%" },
+        { "stat": "Resource Production", "value": "+5%" },
+        { "stat": "Cavalry Attack", "value": "+5%" }
+      ]
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "starting_commander": "Pelagius",
+      "special_unit": { "name": "Conquistador", "type": "Cavalry" },
+      "bonuses": [
+        { "stat": "March Speed", "value": "+10%" },
+        { "stat": "Troop Attack", "value": "+3%" },
+        { "stat": "Action Points Recovery", "value": "+10%" }
+      ]
+    },
+    {
+      "id": "korea",
+      "name": "Korea",
+      "starting_commander": "Eulji Mundeok",
+      "special_unit": { "name": "Hwarang", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Research Speed", "value": "+10%" },
+        { "stat": "Building Speed", "value": "+5%" },
+        { "stat": "Alliance Technology Contribution", "value": "+10%" }
+      ]
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "starting_commander": "Kusunoki Masashige",
+      "special_unit": { "name": "Samurai", "type": "Infantry" },
+      "bonuses": [
+        { "stat": "Watchtower Capacity", "value": "+10%" },
+        { "stat": "Watchtower Warning Range", "value": "+20%" },
+        { "stat": "Troop Defense", "value": "+3%" },
+        { "stat": "Troop Attack", "value": "+4%" }
+      ]
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "starting_commander": "Scipio Africanus",
+      "special_unit": { "name": "Legionary", "type": "Infantry" },
+      "bonuses": [
+        { "stat": "Building Speed", "value": "+10%" },
+        { "stat": "Infantry Attack", "value": "+5%" },
+        { "stat": "March Speed", "value": "+3%" }
+      ]
+    },
+    {
+      "id": "greece",
+      "name": "Greece",
+      "starting_commander": "Pericles",
+      "special_unit": { "name": "Argyraspide", "type": "Infantry" },
+      "bonuses": [
+        { "stat": "Research Speed", "value": "+10%" },
+        { "stat": "Research Cost Reduction", "value": "+5%" },
+        { "stat": "Troop Attack", "value": "+3%" }
+      ]
+    },
+    {
+      "id": "maya",
+      "name": "Maya",
+      "starting_commander": "Wak Chanil Ajaw",
+      "special_unit": { "name": "Spear Thrower", "type": "Archer" },
+      "bonuses": [
+        { "stat": "Action Points Recovery", "value": "+10%" },
+        { "stat": "Troop Training Speed", "value": "+5%" },
+        { "stat": "Gathering Speed", "value": "+10%" }
+      ]
+    }
+  ]
+}
