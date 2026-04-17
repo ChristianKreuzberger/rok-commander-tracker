@@ -9,6 +9,10 @@ Commanders are usually paired (primary + secondary), and based on their Stars, L
 * PvE (against Barbarians)
 * Resource Gatherings
 
+## Data Storage
+
+All data should be stored in the Browsers `localStorage`.
+
 ## Commander Fields
 
 Each commander is tracked with the following attributes:
