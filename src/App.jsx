@@ -10,7 +10,7 @@ function App() {
   const [editingCommander, setEditingCommander] = useState(null)
 
   const handleAdd = (commander) => {
-    setCommanders([...commanders, { ...commander, id: Date.now() }])
+    setCommanders([...commanders, { ...commander, id: crypto.randomUUID() }])
     setShowForm(false)
   }
 
