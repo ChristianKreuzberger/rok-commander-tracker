@@ -40,7 +40,7 @@ function App() {
       </header>
       <main className="app-main">
         <div className="toolbar">
-          <span>{commanders.length} commander{commanders.length !== 1 ? 's' : ''} tracked</span>
+          <span>{commanders.length} commander{commanders.length !== 1 ? 's' : ''}</span>
           <button className="btn btn-primary" onClick={() => setShowForm(true)}>
             + Add Commander
           </button>
