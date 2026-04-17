@@ -11,7 +11,6 @@ function App() {
   const [selectedCiv, setSelectedCiv] = useLocalStorage('rok-civilization', '')
 
   const civilizations = civilizationsData.civilizations
-  const activeCiv = civilizations.find(c => c.id === selectedCiv) ?? null
 
   const handleAdd = (commander) => {
     const name = commander.primary.name.trim().toLowerCase()
@@ -32,34 +31,23 @@ function App() {
     setCommanders(commanders.filter(c => c.primary.name.trim().toLowerCase() !== name.trim().toLowerCase()))
   }
 
+  const handleAddMany = (newCommanders) => {
+    const trackedNames = new Set(commanders.map(c => c.primary.name.trim().toLowerCase()))
+    const toAdd = newCommanders.filter(c => !trackedNames.has(c.primary.name.trim().toLowerCase()))
+    setCommanders([...commanders, ...toAdd])
+  }
+
   return (
     <div className="app">
       <header className="app-header">
         <div className="header-top">
           <h1>⚔️ RoK Commander Tracker</h1>
-          <div className="civ-picker">
-            <label htmlFor="civ-select" className="civ-label">Civilization</label>
-            <select
-              id="civ-select"
-              className="civ-select"
-              value={selectedCiv}
-              onChange={e => setSelectedCiv(e.target.value)}
-            >
-              <option value="">— Select —</option>
-              {civilizations.map(civ => (
-                <option key={civ.id} value={civ.id}>{civ.name}</option>
-              ))}
-            </select>
-          </div>
-          <SettingsMenu />
+          <SettingsMenu
+            selectedCiv={selectedCiv}
+            setSelectedCiv={setSelectedCiv}
+            civilizations={civilizations}
+          />
         </div>
-        {activeCiv ? (
-          <p className="civ-subtitle">
-            {activeCiv.name} · {activeCiv.special_unit.name} ({activeCiv.special_unit.type}) · {activeCiv.starting_commander}
-          </p>
-        ) : (
-          <p>Rise of Kingdoms</p>
-        )}
       </header>
       <Routes>
         <Route
@@ -67,6 +55,7 @@ function App() {
           element={
             <CommanderListPage
               commanders={commanders}
+              onAdd={handleAdd}
               onEdit={handleEdit}
               onDelete={handleDelete}
             />
@@ -74,7 +63,7 @@ function App() {
         />
         <Route
           path="/add"
-          element={<AddCommanderPage onAdd={handleAdd} />}
+          element={<AddCommanderPage onAdd={handleAdd} onAddMany={handleAddMany} commanders={commanders} />}
         />
       </Routes>
     </div>

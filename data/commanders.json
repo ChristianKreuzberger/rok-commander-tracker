@@ -1,50 +1,129 @@
 {
   "_note": "Proprietary game data from Rise of Kingdoms (Lilith Games). For personal tracking use only. Base stats are approximate percentage bonuses from primary skills at max star level (not including talent tree).",
   "commanders": [
-
     {
       "id": "sun_tzu",
       "name": "Sun Tzu",
       "title": "The Art of War",
       "civilization": "china",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Support", "Garrison"],
-      "tags": ["Garrison", "Support", "PvE"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "PvE"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Art of War",
+        "Philosophy of War",
+        "Master Strategist",
+        "Ever-changing Tactics",
+        "Book of Aeons"
+      ]
     },
     {
       "id": "joan_of_arc",
       "name": "Joan of Arc",
       "title": "The Maid of Orléans",
       "civilization": "france",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "female",
-      "specialties": ["Support", "Garrison", "Skill"],
-      "tags": ["Garrison", "Support", "PvP"],
-      "base_stats": { "troop_attack": 10, "troop_defense": 10, "troop_hp": 15, "march_speed": 10 }
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 10
+      },
+      "skills": [
+        "Divine Revelation",
+        "The Maid of Orléans",
+        "Holy Refuge",
+        "Saint",
+        "Descent of the Goddess"
+      ]
     },
     {
       "id": "hermann",
       "name": "Hermann",
       "title": "Liberator of Germania",
       "civilization": "germany",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Skill"],
-      "tags": ["Infantry", "PvE", "PvP"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvE",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Ambush",
+        "Military Genius",
+        "Legend of Teutoburger",
+        "National Hero",
+        "Dead End"
+      ]
     },
     {
       "id": "boudica",
       "name": "Boudica",
       "title": "Queen of the Iceni",
       "civilization": "britain",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "female",
-      "specialties": ["Support", "Peacekeeping"],
-      "tags": ["Support", "PvE", "Peacekeeping"],
-      "base_stats": { "troop_attack": 10, "troop_defense": 10, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Support",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 10,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Lament of the Insurgent",
+        "Group Battle",
+        "Celtic Blood",
+        "Queen of the Iceni",
+        "Roar of the Insurgent"
+      ]
     },
     {
       "id": "bjorn_ironside",
@@ -53,9 +132,26 @@
       "civilization": "vikings",
       "rarity": "Elite",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 15, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 15,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Mjolnir",
+        "Viking Berserker",
+        "Ironside",
+        "Son of Ragnar"
+      ]
     },
     {
       "id": "imhotep",
@@ -64,53 +160,149 @@
       "civilization": "egypt",
       "rarity": "Elite",
       "gender": "male",
-      "specialties": ["Support", "Garrison"],
-      "tags": ["Support", "Garrison"],
-      "base_stats": { "troop_attack": 10, "troop_defense": 10, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Garrison"
+      ],
+      "tags": [
+        "Support",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Architecture",
+        "Step Pyramid",
+        "Son of Ptah",
+        "Healing Arts"
+      ]
     },
     {
       "id": "belisarius",
       "name": "Belisarius",
       "title": "Last of the Romans",
       "civilization": "byzantium",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "PvP", "PvE", "Mobility"],
-      "base_stats": { "troop_attack": 10, "troop_defense": 15, "troop_hp": 10, "march_speed": 15 }
+      "specialties": [
+        "Cavalry",
+        "Peacekeeping",
+        "Mobility"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "PvE",
+        "Mobility"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 15,
+        "troop_hp": 10,
+        "march_speed": 15
+      },
+      "skills": [
+        "Deception",
+        "Irresistible",
+        "Bucellarii",
+        "Oblique Tactics",
+        "Bloodthirsty Bucellarii"
+      ]
     },
     {
       "id": "eulji_mundeok",
       "name": "Eulji Mundeok",
       "title": "Defender of Goryeo",
       "civilization": "korea",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Attack"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Water Attack",
+        "Cold Welcome",
+        "Battle of Salsu",
+        "Strike Back",
+        "War and Peace"
+      ]
     },
     {
       "id": "kusunoki_masashige",
       "name": "Kusunoki Masashige",
       "title": "Loyal Samurai",
       "civilization": "japan",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Shichisei Hōkoku",
+        "The Worthy Man",
+        "Bravery and Wisdom",
+        "Tragedy's End",
+        "Soul of the Samurai"
+      ]
     },
     {
       "id": "scipio_africanus",
       "name": "Scipio Africanus",
       "title": "Victor of the Second Punic War",
       "civilization": "rome",
-      "rarity": "Elite",
+      "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "Support", "PvP"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 10, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Attack"
+      ],
+      "tags": [
+        "Infantry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Military Life",
+        "Patient Warrior",
+        "Conqueror of Africa",
+        "Genuine Aristocracy",
+        "Utter Annihilation"
+      ]
     },
     {
       "id": "pericles",
@@ -119,9 +311,27 @@
       "civilization": "greece",
       "rarity": "Elite",
       "gender": "male",
-      "specialties": ["Garrison", "Support"],
-      "tags": ["Garrison", "Support", "City Defense"],
-      "base_stats": { "troop_attack": 10, "troop_defense": 20, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 20,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Athenian Democracy",
+        "Silver Shield",
+        "Strategos",
+        "Parthenon"
+      ]
     },
     {
       "id": "wak_chanil_ajaw",
@@ -130,11 +340,28 @@
       "civilization": "maya",
       "rarity": "Epic",
       "gender": "female",
-      "specialties": ["Support", "Gathering"],
-      "tags": ["Gathering", "Support"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 10, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Gathering"
+      ],
+      "tags": [
+        "Gathering",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Maya's Tribute",
+        "Jade Emblem",
+        "Warrior Queen",
+        "Sacred Cenote",
+        "Stars of Palenque"
+      ]
     },
-
     {
       "id": "baibars",
       "name": "Baibars",
@@ -142,9 +369,29 @@
       "civilization": "arabia",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvE", "Peacekeeping"],
-      "base_stats": { "troop_attack": 25, "troop_defense": 15, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 15,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Sandstorm",
+        "Arabian Knights",
+        "No Escape",
+        "Great Panther",
+        "Blot Out The Sun"
+      ]
     },
     {
       "id": "osman_i",
@@ -153,9 +400,28 @@
       "civilization": "ottoman_empire",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Cavalry", "Garrison"],
-      "tags": ["Cavalry", "Garrison"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "The Empire Awakens",
+        "Radiance of Bursa",
+        "Sword of Osman",
+        "Sultan's Glory",
+        "Rising Empire"
+      ]
     },
     {
       "id": "pelagius",
@@ -164,9 +430,29 @@
       "civilization": "spain",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "Support", "PvP"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 15, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 15,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Charge",
+        "Founder of Asturias",
+        "Retaking Lost Territory",
+        "The Mutineer",
+        "Oath of Asseuua"
+      ]
     },
     {
       "id": "aethelflaed",
@@ -175,20 +461,59 @@
       "civilization": "britain",
       "rarity": "Epic",
       "gender": "female",
-      "specialties": ["Support", "Peacekeeping"],
-      "tags": ["Support", "PvE", "Debuffer", "Peacekeeping"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Peacekeeping"
+      ],
+      "tags": [
+        "Support",
+        "PvE",
+        "Debuffer",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Lady of the Mercians",
+        "Shield Wall",
+        "Anglo-Saxon Chronicle",
+        "Heart of England",
+        "Unifier of the Midlands"
+      ]
     },
     {
       "id": "lancelot",
       "name": "Lancelot",
       "title": "Knight of the Lake",
       "civilization": "britain",
-      "rarity": "Epic",
+      "rarity": "Elite",
       "gender": "male",
-      "specialties": ["Cavalry", "Skill"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 25, "troop_defense": 10, "troop_hp": 15, "march_speed": 15 }
+      "specialties": [
+        "Cavalry",
+        "Versatility",
+        "Mobility"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 15
+      },
+      "skills": [
+        "Quarrel",
+        "Knight of the Round Table",
+        "Forbidden Love",
+        "Battle of Sorrow"
+      ]
     },
     {
       "id": "lohar",
@@ -197,9 +522,29 @@
       "civilization": "any",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Infantry", "Peacekeeping"],
-      "tags": ["Infantry", "PvE", "Peacekeeping"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 10, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Peacekeeping",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Overwhelming Force",
+        "Sanction",
+        "Lohar's Trial",
+        "Unruly Blood",
+        "Unyielding Spirit"
+      ]
     },
     {
       "id": "keira",
@@ -208,20 +553,58 @@
       "civilization": "any",
       "rarity": "Epic",
       "gender": "female",
-      "specialties": ["Peacekeeping", "Skill"],
-      "tags": ["Peacekeeping", "PvE", "Skill Damage"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 10, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Peacekeeping",
+        "PvE",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 10,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Dance of the Flametongue",
+        "Allies or Enemies?",
+        "Ceroli Sharpshooter",
+        "The Mutineer",
+        "Undying Flame"
+      ]
     },
     {
       "id": "gaius_marius",
       "name": "Gaius Marius",
       "title": "Third Founder of Rome",
       "civilization": "rome",
-      "rarity": "Epic",
+      "rarity": "Elite",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "Support"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 15, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Gathering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 15,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Savior of Italy",
+        "Founder of Empire",
+        "Marius's Reform",
+        "Conqueror of Numidia"
+      ]
     },
     {
       "id": "eric_the_red",
@@ -230,20 +613,54 @@
       "civilization": "vikings",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Gathering", "Peacekeeping"],
-      "tags": ["Gathering"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 0, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Gathering",
+        "Peacekeeping"
+      ],
+      "tags": [
+        "Gathering"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 0,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Norseman",
+        "Discovery",
+        "Pillager",
+        "Norse Farmer",
+        "Vinland"
+      ]
     },
     {
       "id": "constance",
       "name": "Constance",
       "title": "The Princess of Sicily",
-      "civilization": "any",
+      "civilization": "germany",
       "rarity": "Elite",
       "gender": "female",
-      "specialties": ["Gathering", "Support"],
-      "tags": ["Gathering"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 0, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Skill"
+      ],
+      "tags": [
+        "Gathering"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 0,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Struggling Poison",
+        "The Regent",
+        "Loving Mother",
+        "Queen of Sicily"
+      ]
     },
     {
       "id": "sun_ce",
@@ -252,20 +669,58 @@
       "civilization": "china",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "Support"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 10, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 10,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Little Overlord",
+        "Conqueror of the Wu",
+        "Tiger General",
+        "Heaven's Grace",
+        "Hegemon of the Southeast"
+      ]
     },
     {
       "id": "ishida_mitsunari",
       "name": "Ishida Mitsunari",
       "title": "Bureaucrat of the Realm",
       "civilization": "japan",
-      "rarity": "Epic",
+      "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Support", "Garrison"],
-      "tags": ["Support", "Garrison", "PvP"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 20, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Support"
+      ],
+      "tags": [
+        "Support",
+        "Garrison",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 20,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Battle of Sekigahara",
+        "Go-Bugyō",
+        "Taiko-kenchi",
+        "Indispensable",
+        "Three Cups of Tea"
+      ]
     },
     {
       "id": "cnut_the_great",
@@ -274,11 +729,27 @@
       "civilization": "vikings",
       "rarity": "Epic",
       "gender": "male",
-      "specialties": ["Gathering", "Support"],
-      "tags": ["Gathering"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 0, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Gathering",
+        "Support"
+      ],
+      "tags": [
+        "Gathering"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 0,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Viking King",
+        "North Sea Empire",
+        "Danegeld",
+        "Iron Grip",
+        "Unified Crown"
+      ]
     },
-
     {
       "id": "yi_seong_gye",
       "name": "Yi Seong-Gye",
@@ -286,9 +757,30 @@
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Skill"],
-      "tags": ["Archer", "PvP", "Open Field", "Skill Damage"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Archer",
+        "PvP",
+        "Open Field",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Rain of Arrows",
+        "Art of Archery",
+        "Joseon Dynasty",
+        "Destiny",
+        "Arrow Storm"
+      ]
     },
     {
       "id": "seondeok",
@@ -297,9 +789,28 @@
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Garrison", "Support"],
-      "tags": ["Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 25, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Attack"
+      ],
+      "tags": [
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 25,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Modest",
+        "Insightful",
+        "Magnanimous",
+        "Incisive",
+        "Honoring the Heavens"
+      ]
     },
     {
       "id": "cao_cao",
@@ -308,9 +819,30 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvE", "Open Field", "Peacekeeping"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 25, "troop_hp": 30, "march_speed": 15 }
+      "specialties": [
+        "Cavalry",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvE",
+        "Open Field",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 15
+      },
+      "skills": [
+        "Dragon Rider",
+        "The Qingzhou Army",
+        "Tiger Knight",
+        "Lofty Ambition",
+        "Emperor Wu of Wei"
+      ]
     },
     {
       "id": "wu_zetian",
@@ -319,9 +851,28 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Garrison", "Support"],
-      "tags": ["Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 25, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 25,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Mandate of Heaven",
+        "Lion Rider",
+        "Tears of Blood",
+        "Legacy",
+        "Brightest Sky"
+      ]
     },
     {
       "id": "guan_yu",
@@ -330,9 +881,29 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 65, "troop_defense": 35, "troop_hp": 35, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 65,
+        "troop_defense": 35,
+        "troop_hp": 35,
+        "march_speed": 0
+      },
+      "skills": [
+        "Saint of War",
+        "Five Tiger Generals",
+        "The Slaying of Hua Xiong",
+        "Green Dragon Crescent Blade",
+        "Lone Rider"
+      ]
     },
     {
       "id": "zhuge_liang",
@@ -341,9 +912,28 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Support", "Skill"],
-      "tags": ["Support", "Rally", "Debuffer"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Skill"
+      ],
+      "tags": [
+        "Support",
+        "Rally",
+        "Debuffer"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Straw Soldiers",
+        "Eight Formations",
+        "Northern Star",
+        "Empty Fort Strategy",
+        "Prime Minister's Strategy"
+      ]
     },
     {
       "id": "lu_bu",
@@ -352,9 +942,30 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Skill"],
-      "tags": ["Infantry", "PvP", "Open Field", "Skill Damage"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Sky Piercer",
+        "Horse of Horses",
+        "Man of Men",
+        "Flying General",
+        "Sky Scorcher"
+      ]
     },
     {
       "id": "charles_martel",
@@ -363,9 +974,60 @@
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 40, "troop_hp": 35, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Defense"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 40,
+        "troop_hp": 35,
+        "march_speed": 0
+      },
+      "skills": [
+        "Shield of Francia",
+        "Heavy Infantry",
+        "The Uncrowned King",
+        "Martel's Counterattack",
+        "Rise from the Ashes"
+      ]
+    },
+    {
+      "id": "charlemagne",
+      "name": "Charlemagne",
+      "title": "King of the Franks",
+      "civilization": "france",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Eagle of Jupiter",
+        "Happy Home",
+        "Plot Maneuvers",
+        "Pataum",
+        "Carolingian Renaissance"
+      ]
     },
     {
       "id": "frederick_i",
@@ -374,9 +1036,28 @@
       "civilization": "germany",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 30, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Barbarossa",
+        "Never Give Up",
+        "Invasion",
+        "King of Deutschland",
+        "Furious Barbarossa"
+      ]
     },
     {
       "id": "richard_i",
@@ -385,9 +1066,30 @@
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "PvP", "Rally", "Support"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Defense"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Rally",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Soul of the Crusaders",
+        "Chivalry",
+        "The Lionheart",
+        "Battle-Hardened",
+        "Tyrannical Lion"
+      ]
     },
     {
       "id": "edward_of_woodstock",
@@ -396,9 +1098,29 @@
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Cavalry"],
-      "tags": ["Archer", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Versatility",
+        "Skill"
+      ],
+      "tags": [
+        "Archer",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Archer's Honor",
+        "Vengeful Crusade",
+        "Crécy's Campaign",
+        "Limoges' Ambush",
+        "All or Nothing"
+      ]
     },
     {
       "id": "harald_sigurdsson",
@@ -407,9 +1129,29 @@
       "civilization": "vikings",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry"],
-      "tags": ["Infantry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Beserker",
+        "Viking Battleaxe",
+        "Varangian Guard",
+        "Stamford Bridge",
+        "Valhalla"
+      ]
     },
     {
       "id": "ramesses_ii",
@@ -418,9 +1160,29 @@
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Gathering"],
-      "tags": ["Archer", "Gathering", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Versatility",
+        "Attack"
+      ],
+      "tags": [
+        "Archer",
+        "Gathering",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Ceremony of Karnak",
+        "The Poem of Pentaur",
+        "Army of Amun",
+        "Nefertari's Companionship",
+        "King of Kings"
+      ]
     },
     {
       "id": "cleopatra_vii",
@@ -429,9 +1191,28 @@
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Support", "Gathering"],
-      "tags": ["Gathering", "Support"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 10, "troop_hp": 15, "march_speed": 0 }
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Support"
+      ],
+      "tags": [
+        "Gathering",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 10,
+        "troop_hp": 15,
+        "march_speed": 0
+      },
+      "skills": [
+        "Queen of Kings",
+        "End of Ptolemy",
+        "Beauty and Wisdom",
+        "The Last Pharaoh",
+        "Gifts of the Nile"
+      ]
     },
     {
       "id": "berenice",
@@ -440,9 +1221,25 @@
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Gathering"],
-      "tags": ["Gathering"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 0, "troop_hp": 10, "march_speed": 0 }
+      "specialties": [
+        "Gathering"
+      ],
+      "tags": [
+        "Gathering"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 0,
+        "troop_hp": 10,
+        "march_speed": 0
+      },
+      "skills": [
+        "Gathering the Stars",
+        "Desert Bloom",
+        "Quiet Strength",
+        "Queen's Shield",
+        "Eyes of Eternity"
+      ]
     },
     {
       "id": "constantine_i",
@@ -451,9 +1248,29 @@
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 30, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 30,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Edict of Milan",
+        "Allegiance",
+        "Impasse",
+        "Cross of the Divine",
+        "Sole Augustus"
+      ]
     },
     {
       "id": "mehmed_ii",
@@ -462,9 +1279,29 @@
       "civilization": "ottoman_empire",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison", "Siege"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison",
+        "Siege"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Ottoman Cannons",
+        "Lord of Land and Sea",
+        "Faith",
+        "Sage King",
+        "Orban Bombard"
+      ]
     },
     {
       "id": "khalid_ibn_al_walid",
@@ -473,9 +1310,29 @@
       "civilization": "arabia",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvP", "Open Field", "Peacekeeping"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Peacekeeping"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Desert Water",
+        "Battle of Walaja",
+        "Power of Faith",
+        "Sword of God",
+        "Holy Warrior"
+      ]
     },
     {
       "id": "saladin",
@@ -484,9 +1341,28 @@
       "civilization": "arabia",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "Support", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Hold Fast",
+        "Ghulams",
+        "Bond of Fate",
+        "Generosity",
+        "Praise the Creator"
+      ]
     },
     {
       "id": "el_cid",
@@ -495,9 +1371,29 @@
       "civilization": "spain",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvE", "Peacekeeping"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Versatility",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Famous Warrior",
+        "Poem of El Cid",
+        "Guardian of Valencia",
+        "Unyielding",
+        "Out of Control"
+      ]
     },
     {
       "id": "minamoto_no_yoshitsune",
@@ -506,9 +1402,29 @@
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Archer"],
-      "tags": ["Cavalry", "Archer", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "Archer",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Kyohachiryu",
+        "Trial in Kurama-dera",
+        "Master of Kendo",
+        "Warlord",
+        "Kyohachiryu Kiwami"
+      ]
     },
     {
       "id": "takeda_shingen",
@@ -517,20 +1433,59 @@
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 30, "troop_hp": 30, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Versatility",
+        "Mobility"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 30,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Fierce as the Fire",
+        "Swift as the Wind",
+        "Gentle as the Forest",
+        "Immovable as the Mountain",
+        "Kōshū-ryū Gungaku"
+      ]
     },
     {
       "id": "tomoe_gozen",
       "name": "Tomoe Gozen",
       "title": "The Female Warrior",
       "civilization": "japan",
-      "rarity": "Legendary",
+      "rarity": "Elite",
       "gender": "female",
-      "specialties": ["Cavalry", "Skill"],
-      "tags": ["Cavalry", "PvP", "Skill Damage"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Versatility",
+        "Attack"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Blood Sakura",
+        "Divine Bow",
+        "Beauty in Chaos",
+        "Eternal Love"
+      ]
     },
     {
       "id": "oda_nobunaga",
@@ -539,9 +1494,28 @@
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Garrison"],
-      "tags": ["Archer", "Garrison", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison"
+      ],
+      "tags": [
+        "Archer",
+        "Garrison",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Tanegashima",
+        "The Demon King",
+        "Oda Rising",
+        "Volley Fire",
+        "Chaos of War"
+      ]
     },
     {
       "id": "julius_caesar",
@@ -550,9 +1524,29 @@
       "civilization": "rome",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Attack"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Indomitable Army",
+        "Divine Julius",
+        "City Killer",
+        "The Founders",
+        "Ahead of His Time"
+      ]
     },
     {
       "id": "trajan",
@@ -561,9 +1555,27 @@
       "civilization": "rome",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "Support"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Roman Wall",
+        "Via Traiana",
+        "Column of Trajan",
+        "Optimus Princeps",
+        "Dacian War"
+      ]
     },
     {
       "id": "leonidas_i",
@@ -572,9 +1584,29 @@
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry"],
-      "tags": ["Infantry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 40, "troop_hp": 30, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Versatility",
+        "Defense"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 40,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "King of Sparta",
+        "Three Hundred Spartans",
+        "Honorable Sacrifice",
+        "Son of the Lion",
+        "Battle of Thermopylae"
+      ]
     },
     {
       "id": "artemisia_i",
@@ -583,9 +1615,28 @@
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Garrison", "Skill"],
-      "tags": ["Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 30, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Defense"
+      ],
+      "tags": [
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 30,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Battle of Salamis",
+        "Bow and Mount",
+        "Ally of Xerxes",
+        "Queen of Caria",
+        "Rules of Survival"
+      ]
     },
     {
       "id": "alexander_the_great",
@@ -594,9 +1645,29 @@
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "PvP", "Rally"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 10 }
+      "specialties": [
+        "Infantry",
+        "Versatility",
+        "Attack"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Rally"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Shield of the King",
+        "Lead the Charge",
+        "Frontline Commander",
+        "Battle of Chaeronea",
+        "Son of Amun"
+      ]
     },
     {
       "id": "genghis_khan",
@@ -605,9 +1676,30 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvP", "Open Field", "Peacekeeping"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 25, "troop_hp": 30, "march_speed": 20 }
+      "specialties": [
+        "Cavalry",
+        "Versatility",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 20
+      },
+      "skills": [
+        "Chosen One",
+        "Cyclone of the Steppes",
+        "Nomadic Empire",
+        "Military Lifestyle",
+        "Second to None"
+      ]
     },
     {
       "id": "attila",
@@ -616,9 +1708,29 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Peacekeeping"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 20 }
+      "specialties": [
+        "Cavalry",
+        "Conquering",
+        "Attack"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 20
+      },
+      "skills": [
+        "King of the Huns",
+        "The Siege of Constantinople",
+        "Honoria",
+        "Battle of the Catalaunian Plains",
+        "The Scourge of the God"
+      ]
     },
     {
       "id": "hannibal_barca",
@@ -627,9 +1739,29 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Skill"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 15 }
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Attack"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 15
+      },
+      "skills": [
+        "War Elephants",
+        "Envelopment Tactics",
+        "Siege",
+        "Expedition",
+        "War Elephant Trample"
+      ]
     },
     {
       "id": "zenobia",
@@ -638,9 +1770,29 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Cavalry"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 30, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Queen of Palmyra",
+        "Unmatched Beauty",
+        "Conqueror's Ambition",
+        "Pluralistic Reign",
+        "Ascending Augusta"
+      ]
     },
     {
       "id": "cyrus_the_great",
@@ -649,9 +1801,29 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Cavalry"],
-      "tags": ["Infantry", "Cavalry", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Versatility",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Cavalry",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "The Immortals",
+        "Battle of Thymbra",
+        "Persian Bow",
+        "The Cyrus Cylinder",
+        "King of the World"
+      ]
     },
     {
       "id": "darius_i",
@@ -660,9 +1832,27 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Gathering"],
-      "tags": ["Cavalry", "Gathering"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Gathering"
+      ],
+      "tags": [
+        "Cavalry",
+        "Gathering"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Persian Empire",
+        "The Immortals",
+        "Battle of Marathon",
+        "Royal Road",
+        "Great King"
+      ]
     },
     {
       "id": "pacal_ii",
@@ -671,9 +1861,28 @@
       "civilization": "maya",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Support", "Skill"],
-      "tags": ["Support", "PvP", "Debuffer"],
-      "base_stats": { "troop_attack": 20, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Skill"
+      ],
+      "tags": [
+        "Support",
+        "PvP",
+        "Debuffer"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Kinich Ahau",
+        "Palenque",
+        "Temple of Inscriptions",
+        "Cosmic Order",
+        "Jade Sun"
+      ]
     },
     {
       "id": "alexander_nevsky",
@@ -682,9 +1891,28 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "PvP", "Support"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 25, "troop_hp": 30, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Battle of the Neva",
+        "Novgorod Guard",
+        "Holy Warrior",
+        "Battle on the Ice",
+        "Heavenly Patron"
+      ]
     },
     {
       "id": "belisarius_prime",
@@ -693,9 +1921,29 @@
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "PvP", "PvE", "Mobility"],
-      "base_stats": { "troop_attack": 25, "troop_defense": 25, "troop_hp": 20, "march_speed": 20 }
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "PvE",
+        "Mobility"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 25,
+        "troop_hp": 20,
+        "march_speed": 20
+      },
+      "skills": [
+        "Deception",
+        "Irresistible",
+        "Cavalry of Rome",
+        "Oblique Tactics",
+        "Last of the Romans"
+      ]
     },
     {
       "id": "gilgamesh",
@@ -704,9 +1952,29 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Skill"],
-      "tags": ["Archer", "PvP", "Open Field", "Skill Damage"],
-      "base_stats": { "troop_attack": 40, "troop_defense": 20, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Skill"
+      ],
+      "tags": [
+        "Archer",
+        "PvP",
+        "Open Field",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Bull of Heaven",
+        "Wall of Uruk",
+        "Enkidu's Bond",
+        "Epic of Gilgamesh",
+        "Quest for Immortality"
+      ]
     },
     {
       "id": "theodora",
@@ -715,9 +1983,28 @@
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Garrison", "Support"],
-      "tags": ["Garrison", "City Defense", "Support"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 30, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "City Defense",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 30,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Strength of Will",
+        "Blue Faction",
+        "Nika Riots",
+        "Empress Regnant",
+        "Iron Heart"
+      ]
     },
     {
       "id": "napoleon_bonaparte",
@@ -726,9 +2013,28 @@
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Skill"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 10 }
+      "specialties": [
+        "Cavalry",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Grande Armée",
+        "Battle of Austerlitz",
+        "Continental System",
+        "Imperial March",
+        "Emperor of the French"
+      ]
     },
     {
       "id": "william_i",
@@ -737,9 +2043,27 @@
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Garrison"],
-      "tags": ["Infantry", "Garrison"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 30, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Garrison"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 30,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Norman Conquest",
+        "Battle of Hastings",
+        "Domesday Book",
+        "Harrying of the North",
+        "The Conqueror"
+      ]
     },
     {
       "id": "isabella_i",
@@ -748,9 +2072,28 @@
       "civilization": "spain",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Garrison", "Support"],
-      "tags": ["Garrison", "Support", "City Defense"],
-      "base_stats": { "troop_attack": 15, "troop_defense": 30, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Garrison",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 15,
+        "troop_defense": 30,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Reconquista",
+        "Catholic Monarchs",
+        "New World",
+        "Spanish Inquisition",
+        "Crown of Castile"
+      ]
     },
     {
       "id": "achilles",
@@ -759,9 +2102,29 @@
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Skill"],
-      "tags": ["Infantry", "PvP", "Open Field", "Skill Damage"],
-      "base_stats": { "troop_attack": 45, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 45,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Wrath of Achilles",
+        "Myrmidons",
+        "Divine Armor",
+        "Duel at Troy",
+        "Heel of Achilles"
+      ]
     },
     {
       "id": "zhao_yun",
@@ -770,9 +2133,28 @@
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "PvP", "Support"],
-      "base_stats": { "troop_attack": 35, "troop_defense": 20, "troop_hp": 25, "march_speed": 10 }
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Tiger of Changshan",
+        "Five Tiger Generals",
+        "Chang Ban",
+        "Seven Charges",
+        "Long Slope"
+      ]
     },
     {
       "id": "yi_sun_sin",
@@ -781,9 +2163,28 @@
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Archer", "Garrison"],
-      "tags": ["Archer", "Garrison", "City Defense"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Archer",
+        "Garrison"
+      ],
+      "tags": [
+        "Archer",
+        "Garrison",
+        "City Defense"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Turtle Ship",
+        "Battle of Myeongnyang",
+        "Naval Command",
+        "Ocean Guardian",
+        "Admiral of Joseon"
+      ]
     },
     {
       "id": "flavius_aetius",
@@ -792,9 +2193,28 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Infantry"],
-      "tags": ["Cavalry", "PvP", "Open Field"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Cavalry",
+        "Infantry"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Last of the Romans",
+        "Hunnic Cavalry",
+        "Battle of Châlons",
+        "Western Bulwark",
+        "Patrician's Command"
+      ]
     },
     {
       "id": "suleiman",
@@ -803,9 +2223,28 @@
       "civilization": "ottoman_empire",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Cavalry", "Support"],
-      "tags": ["Cavalry", "Support", "PvP"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 20, "troop_hp": 25, "march_speed": 10 }
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Ottoman Laws",
+        "Janissaries",
+        "Siege of Vienna",
+        "Golden Age",
+        "The Magnificent"
+      ]
     },
     {
       "id": "peter_i",
@@ -814,9 +2253,27 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
-      "specialties": ["Infantry", "Support"],
-      "tags": ["Infantry", "Support"],
-      "base_stats": { "troop_attack": 30, "troop_defense": 25, "troop_hp": 25, "march_speed": 0 }
+      "specialties": [
+        "Infantry",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Great Northern War",
+        "Window to the West",
+        "St. Petersburg",
+        "Education Reform",
+        "Tsar of All Russia"
+      ]
     },
     {
       "id": "jadwiga",
@@ -825,10 +2282,59 @@
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "female",
-      "specialties": ["Support", "Gathering"],
-      "tags": ["Gathering", "Support"],
-      "base_stats": { "troop_attack": 0, "troop_defense": 15, "troop_hp": 20, "march_speed": 0 }
+      "specialties": [
+        "Support",
+        "Gathering"
+      ],
+      "tags": [
+        "Gathering",
+        "Support"
+      ],
+      "base_stats": {
+        "troop_attack": 0,
+        "troop_defense": 15,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Crown of Poland",
+        "Jagiellonian Union",
+        "Patroness of Arts",
+        "Crusade for Peace",
+        "Polish Queen"
+      ]
+    },
+    {
+      "id": "arthur_pendragon",
+      "name": "Arthur Pendragon",
+      "title": "The Once and Future King",
+      "civilization": "britain",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Infantry",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvP",
+        "Open Field",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Excalibur",
+        "Rightful King",
+        "Knights of the Round Table",
+        "Holy Sword",
+        "King of Camelot"
+      ]
     }
-
   ]
 }

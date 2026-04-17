@@ -5,6 +5,17 @@ const commanderNames = commandersData.commanders.map(c => c.name)
 const commanderLookup = Object.fromEntries(
   commandersData.commanders.map(c => [c.name.toLowerCase(), c])
 )
+const knownNamesSet = new Set(commandersData.commanders.map(c => c.name.toLowerCase()))
+const canonicalName = Object.fromEntries(
+  commandersData.commanders.map(c => [c.name.toLowerCase(), c.name])
+)
+
+function bulkNameStatus(name, trackedNames) {
+  const lower = name.toLowerCase()
+  if (trackedNames.has(lower)) return 'duplicate'
+  if (knownNamesSet.has(lower)) return 'known'
+  return 'unknown'
+}
 
 const defaultCommander = {
   name: '',
@@ -116,7 +127,7 @@ function CommanderCombobox({ value, onChange, required }) {
   )
 }
 
-function CommanderSection({ label, data, onChange, required }) {
+function CommanderSection({ label, data, onChange, required, showAdvanced }) {
   const setField = (field, value) => onChange({ ...data, [field]: value })
 
   const cmdData = commanderLookup[data.name.toLowerCase()] ?? null
@@ -159,65 +170,70 @@ function CommanderSection({ label, data, onChange, required }) {
         </div>
       )}
 
-      <div className="form-row">
-        <div className="form-group">
-          <label>Stars</label>
-          <div className="star-picker">
-            {[1, 2, 3, 4, 5, 6].map(s => (
-              <button
-                key={s}
-                type="button"
-                className={`star-btn${s <= data.stars ? ' active' : ''}`}
-                onClick={() => setField('stars', s)}
-              >★</button>
-            ))}
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Level — <span className="level-value">{data.level}</span></label>
-          <input
-            type="range"
-            min={1}
-            max={60}
-            value={data.level}
-            onChange={e => setField('level', Number(e.target.value))}
-            className="level-slider"
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Talents</label>
-          <input
-            type="number"
-            min={0}
-            max={74}
-            value={data.talents}
-            onChange={e => setField('talents', Math.min(74, Math.max(0, Number(e.target.value))))}
-          />
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label>Skill Levels</label>
-        <div className="skills-inputs">
-          {data.skills.map((level, i) => (
-            <div key={i} className="skill-input">
-              <label>S{i + 1}</label>
-              <select value={level} onChange={e => setSkill(i, e.target.value)}>
-                {[0, 1, 2, 3, 4, 5].map(l => (
-                  <option key={l} value={l}>{l}</option>
+      {showAdvanced && (
+        <>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Stars</label>
+              <div className="star-picker">
+                {[1, 2, 3, 4, 5, 6].map(s => (
+                  <button
+                    key={s}
+                    type="button"
+                    className={`star-btn${s <= data.stars ? ' active' : ''}`}
+                    onClick={() => setField('stars', s)}
+                  >★</button>
                 ))}
-              </select>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+
+            <div className="form-group">
+              <label>Level — <span className="level-value">{data.level}</span></label>
+              <input
+                type="range"
+                min={1}
+                max={60}
+                value={data.level}
+                onChange={e => setField('level', Number(e.target.value))}
+                className="level-slider"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Talents</label>
+              <input
+                type="number"
+                min={0}
+                max={74}
+                value={data.talents}
+                onChange={e => setField('talents', Math.min(74, Math.max(0, Number(e.target.value))))}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Skill Levels</label>
+            <div className="skills-inputs">
+              {data.skills.map((level, i) => (
+                <div key={i} className="skill-input">
+                  <label>S{i + 1}</label>
+                  <select value={level} onChange={e => setSkill(i, e.target.value)}>
+                    {[0, 1, 2, 3, 4, 5].map(l => (
+                      <option key={l} value={l}>{l}</option>
+                    ))}
+                  </select>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </fieldset>
   )
 }
 
-function CommanderForm({ commander, onSubmit, onCancel }) {
+function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCommanders = [] }) {
+  const [showAdvanced, setShowAdvanced] = useState(!!commander)
   const [formData, setFormData] = useState(() => {
     if (commander) {
       return {
@@ -241,6 +257,86 @@ function CommanderForm({ commander, onSubmit, onCancel }) {
     onSubmit(commander ? { ...commander, ...result } : result)
   }
 
+  const isBulk = !commander && formData.primary.name.includes(',')
+
+  if (isBulk) {
+    const trackedNames = new Set(existingCommanders.map(c => c.primary.name.trim().toLowerCase()))
+    const names = formData.primary.name.split(',').map(n => n.trim()).filter(Boolean)
+    const entries = names.map(name => ({
+      name,
+      status: bulkNameStatus(name, trackedNames),
+      displayName: canonicalName[name.toLowerCase()] ?? name,
+    }))
+    const toAdd = entries.filter(e => e.status !== 'duplicate')
+
+    const handleBulkSubmit = (e) => {
+      e.preventDefault()
+      if (toAdd.length === 0) return
+      const now = Date.now()
+      const cmds = toAdd.map(({ displayName }) => ({
+        primary: { ...defaultCommander, name: displayName },
+        notes: '',
+        createdAt: now,
+        lastUpdatedAt: now,
+      }))
+      onSubmitMany?.(cmds)
+    }
+
+    return (
+      <div className="form-overlay">
+        <form className="commander-form" onSubmit={handleBulkSubmit}>
+          <h2>Add Commanders</h2>
+          <div className="form-group">
+            <label>
+              Names <span className="bulk-label-hint">— comma separated</span>
+            </label>
+            <input
+              type="text"
+              value={formData.primary.name}
+              onChange={e => setFormData({ ...formData, primary: { ...formData.primary, name: e.target.value } })}
+              placeholder="Alexander, Caesar, Saladin"
+              autoComplete="off"
+            />
+          </div>
+
+          {entries.length > 0 && (
+            <div className="mass-add-preview">
+              {entries.map((entry, i) => (
+                <span
+                  key={i}
+                  className={`mass-chip mass-chip--${entry.status}`}
+                  title={
+                    entry.status === 'duplicate' ? 'Already tracked — will be skipped'
+                    : entry.status === 'unknown' ? 'Not in commander database — will still be added'
+                    : 'Known commander'
+                  }
+                >
+                  {entry.displayName}
+                  {entry.status === 'duplicate' && <span className="mass-chip-badge">skip</span>}
+                  {entry.status === 'unknown' && <span className="mass-chip-badge">?</span>}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {entries.length > 0 && (
+            <p className="mass-add-summary">
+              {toAdd.length} to add
+              {entries.length - toAdd.length > 0 && `, ${entries.length - toAdd.length} skipped (already tracked)`}
+            </p>
+          )}
+
+          <div className="form-actions">
+            <button type="button" className="btn btn-secondary" onClick={onCancel}>Cancel</button>
+            <button type="submit" className="btn btn-primary" disabled={toAdd.length === 0}>
+              Add {toAdd.length || ''} Commander{toAdd.length !== 1 ? 's' : ''}
+            </button>
+          </div>
+        </form>
+      </div>
+    )
+  }
+
   return (
     <div className="form-overlay">
       <form className="commander-form" onSubmit={handleSubmit}>
@@ -251,17 +347,28 @@ function CommanderForm({ commander, onSubmit, onCancel }) {
           data={formData.primary}
           onChange={primary => setFormData({ ...formData, primary })}
           required
+          showAdvanced={showAdvanced}
         />
 
-        <div className="form-group">
-          <label>Notes</label>
-          <textarea
-            value={formData.notes}
-            onChange={e => setFormData({ ...formData, notes: e.target.value })}
-            placeholder="Optional notes..."
-            rows={3}
-          />
-        </div>
+        <button
+          type="button"
+          className="btn-advanced-toggle"
+          onClick={() => setShowAdvanced(v => !v)}
+        >
+          {showAdvanced ? '▲ Hide details' : '▼ Add details (stars, level, skills…)'}
+        </button>
+
+        {showAdvanced && (
+          <div className="form-group">
+            <label>Notes</label>
+            <textarea
+              value={formData.notes}
+              onChange={e => setFormData({ ...formData, notes: e.target.value })}
+              placeholder="Optional notes..."
+              rows={3}
+            />
+          </div>
+        )}
 
         <div className="form-actions">
           <button type="button" className="btn btn-secondary" onClick={onCancel}>Cancel</button>

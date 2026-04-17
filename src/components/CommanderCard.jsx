@@ -1,5 +1,23 @@
-import { Pencil, Trash2 } from 'lucide-react'
+import { Pencil, Trash2, Shield, Zap, Crosshair, Castle, Crown, Heart, Flag, Package, Swords, Layers, Shuffle, Wind, Sparkles, ShieldCheck, Sword } from 'lucide-react'
 import commandersData from '../../data/commanders.json'
+
+const SPECIALTY_ICONS = {
+  Infantry: Sword,
+  Cavalry: Zap,
+  Archer: Crosshair,
+  Garrison: Castle,
+  Leadership: Crown,
+  Support: Heart,
+  Peacekeeping: Flag,
+  Gathering: Package,
+  Conquering: Swords,
+  Integration: Layers,
+  Versatility: Shuffle,
+  Mobility: Wind,
+  Attack: Shield,
+  Defense: ShieldCheck,
+  Skill: Sparkles,
+}
 
 const commanderLookup = Object.fromEntries(
   commandersData.commanders.map(c => [c.name.toLowerCase(), c])
@@ -25,9 +43,15 @@ function CommanderCard({ commander, onEdit, onDelete }) {
         <div className="card-cmd-info">
           <span className="card-cmd-title">{cmdData.title}</span>
           <div className="cmd-preview-specialties">
-            {cmdData.specialties.map(s => (
-              <span key={s} className="specialty-badge">{s}</span>
-            ))}
+            {cmdData.specialties.map(s => {
+              const Icon = SPECIALTY_ICONS[s]
+              return (
+                <span key={s} className="specialty-badge">
+                  {Icon && <Icon size={10} />}
+                  {s}
+                </span>
+              )
+            })}
           </div>
           <div className="cmd-preview-stats">
             {cmdData.base_stats.troop_attack > 0 && <span className="stat-chip stat-atk">ATK +{cmdData.base_stats.troop_attack}%</span>}
@@ -44,9 +68,10 @@ function CommanderCard({ commander, onEdit, onDelete }) {
         <span className="meta-tag">{primary.talents} Talents</span>
       </div>
 
-      <div className="skills-grid">
+      <div className="skills-row">
+        <span className="skills-label">Skills:</span>
         {primary.skills.map((level, i) => (
-          <span key={i} className={`skill-badge${level !== 5 ? ' skill-dimmed' : ''}`}>S{i + 1}: {level}</span>
+          <span key={i} className={`skill-num${level !== 5 ? ' skill-dimmed' : ''}`}>{level}</span>
         ))}
       </div>
 

@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Swords } from 'lucide-react'
 import CommanderCard from '../components/CommanderCard'
 import CommanderForm from '../components/CommanderForm'
 import commandersData from '../../data/commanders.json'
@@ -8,13 +9,118 @@ const commanderLookup = Object.fromEntries(
   commandersData.commanders.map(c => [c.name.toLowerCase(), c])
 )
 
+const commanderNames = commandersData.commanders.map(c => c.name)
+
+const defaultCommanderData = { stars: 6, level: 60, skills: [5, 5, 5, 5], talents: 0 }
+
+function InlineAddInput({ onAdd, onCancel, commanders }) {
+  const [value, setValue] = useState('')
+  const [open, setOpen] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(-1)
+  const inputRef = useRef(null)
+  const listRef = useRef(null)
+  const wrapRef = useRef(null)
+
+  const trackedNames = new Set(commanders.map(c => c.primary.name.trim().toLowerCase()))
+  const available = commanderNames.filter(n => !trackedNames.has(n.toLowerCase()))
+
+  const filtered = value.trim()
+    ? available.filter(n => n.toLowerCase().includes(value.toLowerCase()))
+    : available
+
+  useEffect(() => { inputRef.current?.focus() }, [])
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!wrapRef.current?.contains(e.target)) onCancel()
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [onCancel])
+
+  useEffect(() => {
+    if (activeIndex >= 0 && listRef.current) {
+      listRef.current.children[activeIndex]?.scrollIntoView({ block: 'nearest' })
+    }
+  }, [activeIndex])
+
+  const submit = (name) => {
+    const trimmed = name.trim()
+    if (!trimmed) { onCancel(); return }
+    const canonical = commanderNames.find(n => n.toLowerCase() === trimmed.toLowerCase()) ?? trimmed
+    onAdd(canonical)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') { onCancel(); return }
+    if (!open) {
+      if (e.key === 'ArrowDown') { setOpen(true); return }
+      if (e.key === 'Enter') { e.preventDefault(); submit(value); return }
+      return
+    }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActiveIndex(i => Math.min(i + 1, filtered.length - 1))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActiveIndex(i => Math.max(i - 1, 0))
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      if (activeIndex >= 0 && filtered[activeIndex]) submit(filtered[activeIndex])
+      else submit(value)
+    }
+  }
+
+  return (
+    <div className="add-commander-tile add-commander-inline" ref={wrapRef}>
+      <div className="inline-add-combobox">
+        <input
+          ref={inputRef}
+          type="text"
+          value={value}
+          onChange={e => { setValue(e.target.value); setOpen(true); setActiveIndex(-1) }}
+          onFocus={() => setOpen(true)}
+          onKeyDown={handleKeyDown}
+          placeholder="Commander name..."
+          autoComplete="off"
+          className="inline-add-input"
+        />
+        {open && filtered.length > 0 && (
+          <ul className="combobox-list" ref={listRef} role="listbox">
+            {filtered.map((name, i) => (
+              <li
+                key={name}
+                role="option"
+                aria-selected={i === activeIndex}
+                className={`combobox-option${i === activeIndex ? ' active' : ''}`}
+                onMouseDown={() => submit(name)}
+                onMouseEnter={() => setActiveIndex(i)}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <button type="button" className="inline-add-cancel" onClick={onCancel} title="Cancel">✕</button>
+    </div>
+  )
+}
+
 const ALL_RARITIES = ['Legendary', 'Epic', 'Elite', 'Advanced']
 const RARITY_ORDER = { Legendary: 0, Epic: 1, Elite: 2, Advanced: 3 }
 const ALL_SPECIALTIES = [...new Set(commandersData.commanders.flatMap(c => c.specialties))].sort()
 
-function CommanderListPage({ commanders, onEdit, onDelete }) {
+function CommanderListPage({ commanders, onAdd, onEdit, onDelete }) {
   const navigate = useNavigate()
   const [editingCommander, setEditingCommander] = useState(null)
+  const [isAddingInline, setIsAddingInline] = useState(false)
+
+  const handleInlineAdd = (name) => {
+    const now = Date.now()
+    onAdd({ primary: { ...defaultCommanderData, name }, notes: '', createdAt: now, lastUpdatedAt: now })
+    setIsAddingInline(false)
+  }
   const [filterRarity, setFilterRarity] = useState('')
   const [filterSpecialty, setFilterSpecialty] = useState('')
   const [sortBy, setSortBy] = useState('name')
@@ -76,9 +182,6 @@ function CommanderListPage({ commanders, onEdit, onDelete }) {
       {commanders.length > 0 && (
         <div className="toolbar">
           <span>{commanders.length} commander{commanders.length !== 1 ? 's' : ''}</span>
-          <button className="btn btn-primary" onClick={() => navigate('/add')}>
-            + Add Commander
-          </button>
         </div>
       )}
 
@@ -158,6 +261,18 @@ function CommanderListPage({ commanders, onEdit, onDelete }) {
               onDelete={onDelete}
             />
           ))}
+          {isAddingInline ? (
+            <InlineAddInput
+              onAdd={handleInlineAdd}
+              onCancel={() => setIsAddingInline(false)}
+              commanders={commanders}
+            />
+          ) : (
+            <button className="add-commander-tile" onClick={() => setIsAddingInline(true)}>
+              <Swords size={36} className="add-tile-icon" />
+              <span className="add-tile-label">Add Commander</span>
+            </button>
+          )}
         </div>
       )}
     </main>
