@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { version } from '../../package.json'
 
+
 function readLocalStorage() {
   const data = {}
   for (let i = 0; i < localStorage.length; i++) {
@@ -19,7 +20,9 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
   const [inspecting, setInspecting] = useState(false)
   const [copied, setCopied] = useState(false)
   const [confirmingClear, setConfirmingClear] = useState(false)
+  const [importPreview, setImportPreview] = useState(null)
   const ref = useRef(null)
+  const fileInputRef = useRef(null)
 
   useEffect(() => {
     if (!open) return
@@ -28,6 +31,7 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
         setOpen(false)
         setInspecting(false)
         setConfirmingClear(false)
+        setImportPreview(null)
       }
     }
     document.addEventListener('mousedown', handler)
@@ -59,6 +63,50 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
     localStorage.clear()
     setConfirmingClear(false)
     setInspecting(false)
+    setOpen(false)
+    window.location.reload()
+  }
+
+  const handleImportClick = () => {
+    fileInputRef.current.value = ''
+    fileInputRef.current.click()
+  }
+
+  const handleImportFile = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      try {
+        const parsed = JSON.parse(ev.target.result)
+        if (typeof parsed !== 'object' || parsed === null || !Array.isArray(parsed['rok-commanders'])) {
+          setImportPreview({ error: 'Invalid file format. Expected a RoK Tracker export.' })
+          return
+        }
+        const incoming = parsed['rok-commanders']
+        const existing = JSON.parse(localStorage.getItem('rok-commanders') || '[]')
+        const existingNames = new Set(existing.map(c => c.primary?.name?.trim().toLowerCase()))
+        const toAdd = incoming.filter(c => c.primary?.name && !existingNames.has(c.primary.name.trim().toLowerCase()))
+        setImportPreview({ added: toAdd.length, skipped: incoming.length - toAdd.length, data: parsed })
+      } catch {
+        setImportPreview({ error: 'Could not parse file. Make sure it is a valid JSON export.' })
+      }
+    }
+    reader.readAsText(file)
+  }
+
+  const handleConfirmImport = () => {
+    if (!importPreview || importPreview.error) return
+    const { data } = importPreview
+    const incoming = data['rok-commanders']
+    const existing = JSON.parse(localStorage.getItem('rok-commanders') || '[]')
+    const existingNames = new Set(existing.map(c => c.primary?.name?.trim().toLowerCase()))
+    const toAdd = incoming.filter(c => c.primary?.name && !existingNames.has(c.primary.name.trim().toLowerCase()))
+    localStorage.setItem('rok-commanders', JSON.stringify([...existing, ...toAdd]))
+    if (data['rok-civilization']) {
+      localStorage.setItem('rok-civilization', JSON.stringify(data['rok-civilization']))
+    }
+    setImportPreview(null)
     setOpen(false)
     window.location.reload()
   }
@@ -115,6 +163,9 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
                 <button className="btn btn-secondary btn-sm" onClick={handleExport}>
                   Export JSON
                 </button>
+                <button className="btn btn-secondary btn-sm" onClick={handleImportClick}>
+                  Import JSON
+                </button>
                 <button className="btn btn-danger btn-sm" onClick={() => setConfirmingClear(true)}>
                   Clear All Data
                 </button>
@@ -134,6 +185,29 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
             )}
           </div>
 
+          {importPreview && (
+            <div className="settings-import-preview">
+              {importPreview.error ? (
+                <span className="settings-warn">{importPreview.error}</span>
+              ) : (
+                <span className="settings-label">
+                  {importPreview.added} commander{importPreview.added !== 1 ? 's' : ''} will be added
+                  {importPreview.skipped > 0 && `, ${importPreview.skipped} duplicate${importPreview.skipped !== 1 ? 's' : ''} skipped`}.
+                </span>
+              )}
+              <div className="settings-actions">
+                {!importPreview.error && (
+                  <button className="btn btn-primary btn-sm" onClick={handleConfirmImport}>
+                    Confirm Import
+                  </button>
+                )}
+                <button className="btn btn-secondary btn-sm" onClick={() => setImportPreview(null)}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+
           {inspecting && (
             <div className="settings-data-wrap">
               <button className="btn btn-secondary btn-sm settings-copy-btn" onClick={handleCopy}>
@@ -146,6 +220,14 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
           )}
         </div>
       )}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".json,application/json"
+        style={{ display: 'none' }}
+        onChange={handleImportFile}
+        aria-hidden="true"
+      />
     </div>
   )
 }

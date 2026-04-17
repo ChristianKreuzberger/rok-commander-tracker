@@ -1,4 +1,5 @@
-import { Pencil, Trash2, Shield, Zap, Crosshair, Castle, Crown, Heart, Flag, Package, Swords, Layers, Shuffle, Wind, Sparkles, ShieldCheck, Sword } from 'lucide-react'
+import { useState } from 'react'
+import { Pencil, Trash2, Shield, Zap, Crosshair, Castle, Crown, Heart, Flag, Package, Swords, Layers, Shuffle, Wind, Sparkles, ShieldCheck, Sword, ChevronDown, ChevronRight } from 'lucide-react'
 import commandersData from '../../data/commanders.json'
 
 const SPECIALTY_ICONS = {
@@ -23,16 +24,60 @@ const commanderLookup = Object.fromEntries(
   commandersData.commanders.map(c => [c.name.toLowerCase(), c])
 )
 
+function isMaxed(primary) {
+  return (
+    primary.stars === 6 &&
+    primary.level === 60 &&
+    primary.skills.every(s => s === 5)
+  )
+}
+
 function CommanderCard({ commander, onEdit, onDelete }) {
   const { primary, notes } = commander
   const cmdData = commanderLookup[primary.name.toLowerCase()] ?? null
+  const maxed = isMaxed(primary)
+  const [collapsed, setCollapsed] = useState(maxed)
 
   const renderStars = (count) => '★'.repeat(count) + '☆'.repeat(6 - count)
+  const rarityClass = cmdData?.rarity ? `card-rarity-${cmdData.rarity.toLowerCase()}` : ''
+
+  if (collapsed) {
+    return (
+      <div className={`commander-card commander-card-collapsed ${rarityClass}`}>
+        <div className="card-collapsed-row">
+          <button
+            className="btn-collapse-toggle"
+            onClick={() => setCollapsed(false)}
+            title="Expand"
+          >
+            <ChevronRight size={14} />
+          </button>
+          <h3 className="card-collapsed-name" onClick={() => setCollapsed(false)}>{primary.name}</h3>
+          {maxed && <span className="maxed-badge">MAX</span>}
+          {!maxed && <span className="card-collapsed-stars">{renderStars(primary.stars)}</span>}
+          <div className="card-actions">
+            <button className="btn btn-sm btn-secondary btn-icon" onClick={() => onEdit(commander)} title="Edit"><Pencil size={16} /></button>
+            <button className="btn btn-sm btn-danger btn-icon" onClick={() => onDelete(commander.primary.name)} title="Delete"><Trash2 size={16} /></button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className="commander-card">
+    <div className={`commander-card ${rarityClass}`}>
       <div className="card-header">
-        <h3>{primary.name}</h3>
+        <div className="card-header-left">
+          <button
+            className="btn-collapse-toggle"
+            onClick={() => setCollapsed(true)}
+            title="Collapse"
+          >
+            <ChevronDown size={14} />
+          </button>
+          <h3>{primary.name}</h3>
+          {maxed && <span className="maxed-badge">MAX</span>}
+        </div>
         <div className="card-actions">
           <button className="btn btn-sm btn-secondary btn-icon" onClick={() => onEdit(commander)} title="Edit"><Pencil size={16} /></button>
           <button className="btn btn-sm btn-danger btn-icon" onClick={() => onDelete(commander.primary.name)} title="Delete"><Trash2 size={16} /></button>
@@ -41,7 +86,6 @@ function CommanderCard({ commander, onEdit, onDelete }) {
 
       {cmdData && (
         <div className="card-cmd-info">
-          <span className="card-cmd-title">{cmdData.title}</span>
           <div className="cmd-preview-specialties">
             {cmdData.specialties.map(s => {
               const Icon = SPECIALTY_ICONS[s]

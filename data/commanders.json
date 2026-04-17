@@ -4,7 +4,6 @@
     {
       "id": "sun_tzu",
       "name": "Sun Tzu",
-      "title": "The Art of War",
       "civilization": "china",
       "rarity": "Epic",
       "gender": "male",
@@ -35,7 +34,6 @@
     {
       "id": "joan_of_arc",
       "name": "Joan of Arc",
-      "title": "The Maid of Orléans",
       "civilization": "france",
       "rarity": "Epic",
       "gender": "female",
@@ -57,7 +55,7 @@
       },
       "skills": [
         "Divine Revelation",
-        "The Maid of Orléans",
+        "The Maid of Orl\u00e9ans",
         "Holy Refuge",
         "Saint",
         "Descent of the Goddess"
@@ -66,7 +64,6 @@
     {
       "id": "hermann",
       "name": "Hermann",
-      "title": "Liberator of Germania",
       "civilization": "germany",
       "rarity": "Epic",
       "gender": "male",
@@ -97,7 +94,6 @@
     {
       "id": "boudica",
       "name": "Boudica",
-      "title": "Queen of the Iceni",
       "civilization": "britain",
       "rarity": "Epic",
       "gender": "female",
@@ -127,8 +123,7 @@
     },
     {
       "id": "bjorn_ironside",
-      "name": "Björn Ironside",
-      "title": "King of Sweden",
+      "name": "Bj\u00f6rn Ironside",
       "civilization": "vikings",
       "rarity": "Elite",
       "gender": "male",
@@ -156,7 +151,6 @@
     {
       "id": "imhotep",
       "name": "Imhotep",
-      "title": "Architect of the Gods",
       "civilization": "egypt",
       "rarity": "Elite",
       "gender": "male",
@@ -184,7 +178,6 @@
     {
       "id": "belisarius",
       "name": "Belisarius",
-      "title": "Last of the Romans",
       "civilization": "byzantium",
       "rarity": "Epic",
       "gender": "male",
@@ -216,7 +209,6 @@
     {
       "id": "eulji_mundeok",
       "name": "Eulji Mundeok",
-      "title": "Defender of Goryeo",
       "civilization": "korea",
       "rarity": "Epic",
       "gender": "male",
@@ -246,7 +238,6 @@
     {
       "id": "kusunoki_masashige",
       "name": "Kusunoki Masashige",
-      "title": "Loyal Samurai",
       "civilization": "japan",
       "rarity": "Epic",
       "gender": "male",
@@ -266,7 +257,7 @@
         "march_speed": 0
       },
       "skills": [
-        "Shichisei Hōkoku",
+        "Shichisei H\u014dkoku",
         "The Worthy Man",
         "Bravery and Wisdom",
         "Tragedy's End",
@@ -276,7 +267,6 @@
     {
       "id": "scipio_africanus",
       "name": "Scipio Africanus",
-      "title": "Victor of the Second Punic War",
       "civilization": "rome",
       "rarity": "Epic",
       "gender": "male",
@@ -307,7 +297,6 @@
     {
       "id": "pericles",
       "name": "Pericles",
-      "title": "First Citizen of Athens",
       "civilization": "greece",
       "rarity": "Elite",
       "gender": "male",
@@ -336,7 +325,6 @@
     {
       "id": "wak_chanil_ajaw",
       "name": "Wak Chanil Ajaw",
-      "title": "Lady of the Two-Place Name",
       "civilization": "maya",
       "rarity": "Epic",
       "gender": "female",
@@ -365,7 +353,6 @@
     {
       "id": "baibars",
       "name": "Baibars",
-      "title": "Father of Conquest",
       "civilization": "arabia",
       "rarity": "Epic",
       "gender": "male",
@@ -396,7 +383,6 @@
     {
       "id": "osman_i",
       "name": "Osman I",
-      "title": "Founder of the Ottoman Empire",
       "civilization": "ottoman_empire",
       "rarity": "Epic",
       "gender": "male",
@@ -426,7 +412,6 @@
     {
       "id": "pelagius",
       "name": "Pelagius",
-      "title": "Champion of the Reconquista",
       "civilization": "spain",
       "rarity": "Epic",
       "gender": "male",
@@ -457,7 +442,6 @@
     {
       "id": "aethelflaed",
       "name": "Aethelflaed",
-      "title": "Lady of the Mercians",
       "civilization": "britain",
       "rarity": "Epic",
       "gender": "female",
@@ -488,7 +472,6 @@
     {
       "id": "lancelot",
       "name": "Lancelot",
-      "title": "Knight of the Lake",
       "civilization": "britain",
       "rarity": "Elite",
       "gender": "male",
@@ -518,7 +501,6 @@
     {
       "id": "lohar",
       "name": "Lohar",
-      "title": "Ironclad Fist",
       "civilization": "any",
       "rarity": "Epic",
       "gender": "male",
@@ -549,7 +531,6 @@
     {
       "id": "keira",
       "name": "Keira",
-      "title": "The Red Chameleon",
       "civilization": "any",
       "rarity": "Epic",
       "gender": "female",
@@ -580,7 +561,6 @@
     {
       "id": "gaius_marius",
       "name": "Gaius Marius",
-      "title": "Third Founder of Rome",
       "civilization": "rome",
       "rarity": "Elite",
       "gender": "male",
@@ -609,7 +589,6 @@
     {
       "id": "eric_the_red",
       "name": "Eric the Red",
-      "title": "Discoverer of Greenland",
       "civilization": "vikings",
       "rarity": "Epic",
       "gender": "male",
@@ -637,7 +616,6 @@
     {
       "id": "constance",
       "name": "Constance",
-      "title": "The Princess of Sicily",
       "civilization": "germany",
       "rarity": "Elite",
       "gender": "female",
@@ -665,7 +643,6 @@
     {
       "id": "sun_ce",
       "name": "Sun Ce",
-      "title": "The Little Conqueror",
       "civilization": "china",
       "rarity": "Epic",
       "gender": "male",
@@ -694,7 +671,6 @@
     {
       "id": "ishida_mitsunari",
       "name": "Ishida Mitsunari",
-      "title": "Bureaucrat of the Realm",
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
@@ -716,7 +692,7 @@
       },
       "skills": [
         "Battle of Sekigahara",
-        "Go-Bugyō",
+        "Go-Bugy\u014d",
         "Taiko-kenchi",
         "Indispensable",
         "Three Cups of Tea"
@@ -725,7 +701,6 @@
     {
       "id": "cnut_the_great",
       "name": "Cnut the Great",
-      "title": "King of the North Sea Empire",
       "civilization": "vikings",
       "rarity": "Epic",
       "gender": "male",
@@ -753,7 +728,6 @@
     {
       "id": "yi_seong_gye",
       "name": "Yi Seong-Gye",
-      "title": "Founder of Joseon",
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "male",
@@ -785,7 +759,6 @@
     {
       "id": "seondeok",
       "name": "Seondeok",
-      "title": "Queen of Silla",
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "female",
@@ -815,7 +788,6 @@
     {
       "id": "cao_cao",
       "name": "Cao Cao",
-      "title": "The Great",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -847,7 +819,6 @@
     {
       "id": "wu_zetian",
       "name": "Wu Zetian",
-      "title": "Empress of China",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "female",
@@ -877,7 +848,6 @@
     {
       "id": "guan_yu",
       "name": "Guan Yu",
-      "title": "Saint of War",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -908,7 +878,6 @@
     {
       "id": "zhuge_liang",
       "name": "Zhuge Liang",
-      "title": "Sleeping Dragon",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -937,8 +906,7 @@
     },
     {
       "id": "lu_bu",
-      "name": "Lü Bu",
-      "title": "Mightiest Under Heaven",
+      "name": "L\u00fc Bu",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -970,7 +938,6 @@
     {
       "id": "charles_martel",
       "name": "Charles Martel",
-      "title": "The Hammer",
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "male",
@@ -1001,7 +968,6 @@
     {
       "id": "charlemagne",
       "name": "Charlemagne",
-      "title": "King of the Franks",
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "male",
@@ -1032,7 +998,6 @@
     {
       "id": "frederick_i",
       "name": "Frederick I",
-      "title": "Barbarossa",
       "civilization": "germany",
       "rarity": "Legendary",
       "gender": "male",
@@ -1062,7 +1027,6 @@
     {
       "id": "richard_i",
       "name": "Richard I",
-      "title": "The Lionheart",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
@@ -1094,7 +1058,6 @@
     {
       "id": "edward_of_woodstock",
       "name": "Edward of Woodstock",
-      "title": "The Black Prince",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
@@ -1117,7 +1080,7 @@
       "skills": [
         "Archer's Honor",
         "Vengeful Crusade",
-        "Crécy's Campaign",
+        "Cr\u00e9cy's Campaign",
         "Limoges' Ambush",
         "All or Nothing"
       ]
@@ -1125,7 +1088,6 @@
     {
       "id": "harald_sigurdsson",
       "name": "Harald Sigurdsson",
-      "title": "Last Great Viking",
       "civilization": "vikings",
       "rarity": "Legendary",
       "gender": "male",
@@ -1156,7 +1118,6 @@
     {
       "id": "ramesses_ii",
       "name": "Ramesses II",
-      "title": "The Great Ruler",
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "male",
@@ -1187,7 +1148,6 @@
     {
       "id": "cleopatra_vii",
       "name": "Cleopatra VII",
-      "title": "Queen of Egypt",
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "female",
@@ -1217,7 +1177,6 @@
     {
       "id": "berenice",
       "name": "Berenice",
-      "title": "The Warrior Queen",
       "civilization": "egypt",
       "rarity": "Legendary",
       "gender": "female",
@@ -1244,7 +1203,6 @@
     {
       "id": "constantine_i",
       "name": "Constantine I",
-      "title": "The Great",
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "male",
@@ -1275,7 +1233,6 @@
     {
       "id": "mehmed_ii",
       "name": "Mehmed II",
-      "title": "The Conqueror",
       "civilization": "ottoman_empire",
       "rarity": "Legendary",
       "gender": "male",
@@ -1306,7 +1263,6 @@
     {
       "id": "khalid_ibn_al_walid",
       "name": "Khalid ibn al-Walid",
-      "title": "Sword of God",
       "civilization": "arabia",
       "rarity": "Legendary",
       "gender": "male",
@@ -1337,7 +1293,6 @@
     {
       "id": "saladin",
       "name": "Saladin",
-      "title": "Sultan of Egypt and Syria",
       "civilization": "arabia",
       "rarity": "Legendary",
       "gender": "male",
@@ -1367,7 +1322,6 @@
     {
       "id": "el_cid",
       "name": "El Cid",
-      "title": "The Lord",
       "civilization": "spain",
       "rarity": "Legendary",
       "gender": "male",
@@ -1398,7 +1352,6 @@
     {
       "id": "minamoto_no_yoshitsune",
       "name": "Minamoto no Yoshitsune",
-      "title": "Master Swordsman",
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
@@ -1429,7 +1382,6 @@
     {
       "id": "takeda_shingen",
       "name": "Takeda Shingen",
-      "title": "Tiger of Kai",
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
@@ -1454,13 +1406,12 @@
         "Swift as the Wind",
         "Gentle as the Forest",
         "Immovable as the Mountain",
-        "Kōshū-ryū Gungaku"
+        "K\u014dsh\u016b-ry\u016b Gungaku"
       ]
     },
     {
       "id": "tomoe_gozen",
       "name": "Tomoe Gozen",
-      "title": "The Female Warrior",
       "civilization": "japan",
       "rarity": "Elite",
       "gender": "female",
@@ -1490,7 +1441,6 @@
     {
       "id": "oda_nobunaga",
       "name": "Oda Nobunaga",
-      "title": "The Demon King",
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
@@ -1520,7 +1470,6 @@
     {
       "id": "julius_caesar",
       "name": "Julius Caesar",
-      "title": "Dictator of Rome",
       "civilization": "rome",
       "rarity": "Legendary",
       "gender": "male",
@@ -1551,7 +1500,6 @@
     {
       "id": "trajan",
       "name": "Trajan",
-      "title": "Optimus Princeps",
       "civilization": "rome",
       "rarity": "Legendary",
       "gender": "male",
@@ -1580,7 +1528,6 @@
     {
       "id": "leonidas_i",
       "name": "Leonidas I",
-      "title": "King of Sparta",
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
@@ -1611,7 +1558,6 @@
     {
       "id": "artemisia_i",
       "name": "Artemisia I",
-      "title": "Queen of Halicarnassus",
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "female",
@@ -1641,7 +1587,6 @@
     {
       "id": "alexander_the_great",
       "name": "Alexander the Great",
-      "title": "The Great King",
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
@@ -1672,7 +1617,6 @@
     {
       "id": "genghis_khan",
       "name": "Genghis Khan",
-      "title": "Universal Ruler",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1704,7 +1648,6 @@
     {
       "id": "attila",
       "name": "Attila",
-      "title": "The Scourge of God",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1735,7 +1678,6 @@
     {
       "id": "hannibal_barca",
       "name": "Hannibal Barca",
-      "title": "Father of Strategy",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1766,7 +1708,6 @@
     {
       "id": "zenobia",
       "name": "Zenobia",
-      "title": "Queen of the East",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "female",
@@ -1797,7 +1738,6 @@
     {
       "id": "cyrus_the_great",
       "name": "Cyrus the Great",
-      "title": "Father of the Nation",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1828,7 +1768,6 @@
     {
       "id": "darius_i",
       "name": "Darius I",
-      "title": "King of Kings",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1857,7 +1796,6 @@
     {
       "id": "pacal_ii",
       "name": "Pacal II",
-      "title": "Shield of the Sun",
       "civilization": "maya",
       "rarity": "Legendary",
       "gender": "male",
@@ -1887,7 +1825,6 @@
     {
       "id": "alexander_nevsky",
       "name": "Alexander Nevsky",
-      "title": "Prince of Novgorod",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1917,7 +1854,6 @@
     {
       "id": "belisarius_prime",
       "name": "Belisarius Prime",
-      "title": "Last of the Romans (Awakened)",
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "male",
@@ -1948,7 +1884,6 @@
     {
       "id": "gilgamesh",
       "name": "Gilgamesh",
-      "title": "King of Uruk",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -1979,7 +1914,6 @@
     {
       "id": "theodora",
       "name": "Theodora",
-      "title": "Empress of Byzantium",
       "civilization": "byzantium",
       "rarity": "Legendary",
       "gender": "female",
@@ -2009,7 +1943,6 @@
     {
       "id": "napoleon_bonaparte",
       "name": "Napoleon Bonaparte",
-      "title": "Emperor of the French",
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "male",
@@ -2029,7 +1962,7 @@
         "march_speed": 10
       },
       "skills": [
-        "Grande Armée",
+        "Grande Arm\u00e9e",
         "Battle of Austerlitz",
         "Continental System",
         "Imperial March",
@@ -2039,7 +1972,6 @@
     {
       "id": "william_i",
       "name": "William I",
-      "title": "The Conqueror",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
@@ -2068,7 +2000,6 @@
     {
       "id": "isabella_i",
       "name": "Isabella I",
-      "title": "Queen of Castile",
       "civilization": "spain",
       "rarity": "Legendary",
       "gender": "female",
@@ -2098,7 +2029,6 @@
     {
       "id": "achilles",
       "name": "Achilles",
-      "title": "Hero of the Trojan War",
       "civilization": "greece",
       "rarity": "Legendary",
       "gender": "male",
@@ -2129,7 +2059,6 @@
     {
       "id": "zhao_yun",
       "name": "Zhao Yun",
-      "title": "Tiger of Changshan",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -2159,7 +2088,6 @@
     {
       "id": "yi_sun_sin",
       "name": "Yi Sun-sin",
-      "title": "Admiral of Joseon",
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "male",
@@ -2189,7 +2117,6 @@
     {
       "id": "flavius_aetius",
       "name": "Flavius Aetius",
-      "title": "Savior of the West",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -2211,7 +2138,7 @@
       "skills": [
         "Last of the Romans",
         "Hunnic Cavalry",
-        "Battle of Châlons",
+        "Battle of Ch\u00e2lons",
         "Western Bulwark",
         "Patrician's Command"
       ]
@@ -2219,7 +2146,6 @@
     {
       "id": "suleiman",
       "name": "Suleiman the Magnificent",
-      "title": "The Magnificent",
       "civilization": "ottoman_empire",
       "rarity": "Legendary",
       "gender": "male",
@@ -2249,7 +2175,6 @@
     {
       "id": "peter_i",
       "name": "Peter I",
-      "title": "Peter the Great",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -2278,7 +2203,6 @@
     {
       "id": "jadwiga",
       "name": "Jadwiga",
-      "title": "Queen of Poland",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "female",
@@ -2307,7 +2231,6 @@
     {
       "id": "arthur_pendragon",
       "name": "Arthur Pendragon",
-      "title": "The Once and Future King",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "male",
@@ -2339,7 +2262,6 @@
     {
       "id": "scipio_africanus_prime",
       "name": "Scipio Africanus Prime",
-      "title": "Victor of the Second Punic War (Awakened)",
       "civilization": "rome",
       "rarity": "Legendary",
       "gender": "male",
@@ -2370,7 +2292,6 @@
     {
       "id": "sun_tzu_prime",
       "name": "Sun Tzu Prime",
-      "title": "The Art of War (Awakened)",
       "civilization": "china",
       "rarity": "Legendary",
       "gender": "male",
@@ -2401,7 +2322,6 @@
     {
       "id": "joan_of_arc_prime",
       "name": "Joan of Arc Prime",
-      "title": "The Maid of Orléans (Awakened)",
       "civilization": "france",
       "rarity": "Legendary",
       "gender": "female",
@@ -2423,7 +2343,7 @@
       },
       "skills": [
         "Divine Revelation",
-        "The Maid of Orléans",
+        "The Maid of Orl\u00e9ans",
         "Holy Refuge",
         "Saint",
         "Eternal Flame of Faith"
@@ -2432,7 +2352,6 @@
     {
       "id": "hermann_prime",
       "name": "Hermann Prime",
-      "title": "Liberator of Germania (Awakened)",
       "civilization": "germany",
       "rarity": "Legendary",
       "gender": "male",
@@ -2463,7 +2382,6 @@
     {
       "id": "boudica_prime",
       "name": "Boudica Prime",
-      "title": "Queen of the Iceni (Awakened)",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "female",
@@ -2494,7 +2412,6 @@
     {
       "id": "eulji_mundeok_prime",
       "name": "Eulji Mundeok Prime",
-      "title": "Defender of Goryeo (Awakened)",
       "civilization": "korea",
       "rarity": "Legendary",
       "gender": "male",
@@ -2524,7 +2441,6 @@
     {
       "id": "kusunoki_masashige_prime",
       "name": "Kusunoki Masashige Prime",
-      "title": "Loyal Samurai (Awakened)",
       "civilization": "japan",
       "rarity": "Legendary",
       "gender": "male",
@@ -2544,7 +2460,7 @@
         "march_speed": 0
       },
       "skills": [
-        "Shichisei Hōkoku",
+        "Shichisei H\u014dkoku",
         "The Worthy Man",
         "Bravery and Wisdom",
         "Undying Loyalty",
@@ -2554,7 +2470,6 @@
     {
       "id": "pelagius_prime",
       "name": "Pelagius Prime",
-      "title": "Champion of the Reconquista (Awakened)",
       "civilization": "spain",
       "rarity": "Legendary",
       "gender": "male",
@@ -2585,7 +2500,6 @@
     {
       "id": "aethelflaed_prime",
       "name": "Aethelflaed Prime",
-      "title": "Lady of the Mercians (Awakened)",
       "civilization": "britain",
       "rarity": "Legendary",
       "gender": "female",
@@ -2616,7 +2530,6 @@
     {
       "id": "lohar_prime",
       "name": "Lohar Prime",
-      "title": "Ironclad Fist (Awakened)",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "male",
@@ -2647,7 +2560,6 @@
     {
       "id": "keira_prime",
       "name": "Keira Prime",
-      "title": "The Red Chameleon (Awakened)",
       "civilization": "any",
       "rarity": "Legendary",
       "gender": "female",
@@ -2673,6 +2585,125 @@
         "Ceroli Sharpshooter",
         "The Mutineer",
         "Eternal Flame"
+      ]
+    },
+    {
+      "id": "huo_qubing",
+      "name": "Huo Qubing",
+      "civilization": "china",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Cavalry",
+        "Peacekeeping",
+        "Attack"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 40,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Flying Arrow",
+        "Pursuit",
+        "Thousand Li March",
+        "War God",
+        "Decisive Battle"
+      ]
+    },
+    {
+      "id": "liu_che",
+      "name": "Liu Che",
+      "civilization": "china",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Cavalry",
+        "Support"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support",
+        "Rally"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Endless Wars",
+        "Silk Road",
+        "Eastern Expansion",
+        "Imperial Edict",
+        "Great Han Empire"
+      ]
+    },
+    {
+      "id": "mulan",
+      "name": "Mulan",
+      "civilization": "china",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Cavalry",
+        "Versatility",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "PvP",
+        "Open Field"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 10
+      },
+      "skills": [
+        "Loyal Heroine",
+        "Filial Daughter",
+        "Northern Expedition",
+        "Female Warrior",
+        "Red Hare Horse"
+      ]
+    },
+    {
+      "id": "tomyris",
+      "name": "Tomyris",
+      "civilization": "any",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Archer",
+        "PvP",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Scythian Arrow",
+        "Massagetae's Pride",
+        "Vengeance",
+        "Queen's Wrath",
+        "Blood of the Fallen"
       ]
     }
   ]

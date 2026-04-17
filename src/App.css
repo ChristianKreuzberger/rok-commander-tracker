@@ -247,9 +247,101 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
+/* Legendary is the default gold style above */
+.card-rarity-epic {
+  background: linear-gradient(160deg, #160d1e 0%, #0f0814 100%);
+  border-color: #5a3a7a;
+}
+.card-rarity-epic:hover {
+  border-color: #8a5abf;
+  box-shadow: 0 4px 16px rgba(138,90,191,0.2);
+}
+.card-rarity-elite {
+  background: linear-gradient(160deg, #0d1a10 0%, #091209 100%);
+  border-color: #2e5c38;
+}
+.card-rarity-elite:hover {
+  border-color: #4a9a5a;
+  box-shadow: 0 4px 16px rgba(74,154,90,0.2);
+}
+.card-rarity-advanced {
+  background: linear-gradient(160deg, #101820 0%, #0a1018 100%);
+  border-color: #2a4a60;
+}
+.card-rarity-advanced:hover {
+  border-color: #3a7aaa;
+  box-shadow: 0 4px 16px rgba(58,122,170,0.2);
+}
+
 .commander-card:hover {
   border-color: #c9930c;
   box-shadow: 0 4px 16px rgba(201,147,12,0.25);
+}
+
+.commander-card-collapsed {
+  padding: 0.55rem 0.75rem;
+}
+
+.card-collapsed-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-collapsed-name {
+  margin: 0;
+  font-size: 1rem;
+  color: #f0c040;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-collapsed-name:hover {
+  color: #ffe080;
+}
+
+.card-collapsed-stars {
+  color: #ffd700;
+  font-size: 0.85rem;
+  text-shadow: 0 0 4px rgba(255,215,0,0.4);
+}
+
+.btn-collapse-toggle {
+  background: none;
+  border: none;
+  color: #6b5c40;
+  cursor: pointer;
+  padding: 0.15rem 0.2rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-collapse-toggle:hover {
+  color: #f0c040;
+}
+
+.maxed-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  background: rgba(0, 200, 120, 0.15);
+  color: #4ecb8a;
+  border: 1px solid #2a7a50;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.card-actions-always {
+  opacity: 1 !important;
 }
 
 .card-header {
@@ -257,6 +349,12 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 0.5rem;
+}
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .card-header h3 {
@@ -958,7 +1056,8 @@
   position: relative;
 }
 
-.settings-clear-confirm {
+.settings-clear-confirm,
+.settings-import-preview {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

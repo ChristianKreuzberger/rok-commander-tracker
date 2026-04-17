@@ -107,7 +107,6 @@ function InlineAddInput({ onAdd, onCancel, commanders }) {
 }
 
 const ALL_RARITIES = ['Legendary', 'Epic', 'Elite', 'Advanced']
-const RARITY_ORDER = { Legendary: 0, Epic: 1, Elite: 2, Advanced: 3 }
 const ALL_SPECIALTIES = [...new Set(commandersData.commanders.flatMap(c => c.specialties))].sort()
 
 function CommanderListPage({ commanders, onAdd, onDelete }) {
@@ -121,9 +120,10 @@ function CommanderListPage({ commanders, onAdd, onDelete }) {
   }
   const [filterRarity, setFilterRarity] = useState('')
   const [filterSpecialty, setFilterSpecialty] = useState('')
-  const [sortBy, setSortBy] = useState('name')
 
   const handleEditClick = (commander) => navigate('/edit/' + encodeURIComponent(commander.primary.name))
+
+  const isMaxed = (p) => p.stars === 6 && p.level === 60 && p.skills.every(s => s === 5)
 
   const displayedCommanders = useMemo(() => {
     let result = [...commanders]
@@ -143,30 +143,20 @@ function CommanderListPage({ commanders, onAdd, onDelete }) {
     }
 
     result.sort((a, b) => {
-      switch (sortBy) {
-        case 'stars':
-          return b.primary.stars - a.primary.stars
-        case 'name':
-          return a.primary.name.localeCompare(b.primary.name)
-        case 'date_added':
-          return (b.createdAt ?? 0) - (a.createdAt ?? 0)
-        case 'skills': {
-          const scoreA = a.primary.skills[0] * 1000 + a.primary.skills[1] * 100 + a.primary.skills[2] * 10 + a.primary.skills[3]
-          const scoreB = b.primary.skills[0] * 1000 + b.primary.skills[1] * 100 + b.primary.skills[2] * 10 + b.primary.skills[3]
-          return scoreB - scoreA
-        }
-        case 'rarity': {
-          const ra = RARITY_ORDER[commanderLookup[a.primary.name.toLowerCase()]?.rarity] ?? 99
-          const rb = RARITY_ORDER[commanderLookup[b.primary.name.toLowerCase()]?.rarity] ?? 99
-          return ra - rb
-        }
-        default:
-          return 0
-      }
+      const aMaxed = isMaxed(a.primary)
+      const bMaxed = isMaxed(b.primary)
+      const aRarity = commanderLookup[a.primary.name.toLowerCase()]?.rarity
+      const bRarity = commanderLookup[b.primary.name.toLowerCase()]?.rarity
+
+      // maxed legendary → maxed other → non-maxed
+      const rank = (maxed, rarity) => maxed ? (rarity === 'Legendary' ? 0 : 1) : 2
+      const diff = rank(aMaxed, aRarity) - rank(bMaxed, bRarity)
+      if (diff !== 0) return diff
+      return a.primary.name.localeCompare(b.primary.name)
     })
 
     return result
-  }, [commanders, filterRarity, filterSpecialty, sortBy])
+  }, [commanders, filterRarity, filterSpecialty])
 
   return (
     <main className="app-main">
@@ -194,16 +184,6 @@ function CommanderListPage({ commanders, onAdd, onDelete }) {
               {ALL_SPECIALTIES.map(s => (
                 <option key={s} value={s}>{s}</option>
               ))}
-            </select>
-          </div>
-          <div className="filter-group">
-            <label className="filter-label">Sort by</label>
-            <select className="filter-select" value={sortBy} onChange={e => setSortBy(e.target.value)}>
-              <option value="name">Name</option>
-              <option value="rarity">Rarity</option>
-              <option value="stars">Stars</option>
-              <option value="date_added">Date Added</option>
-              <option value="skills">Skills Score</option>
             </select>
           </div>
           {(filterRarity || filterSpecialty) && (
