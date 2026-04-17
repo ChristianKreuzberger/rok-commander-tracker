@@ -1,25 +1,36 @@
 .app {
   min-height: 100vh;
-  background: #1a1a2e;
-  color: #eaeaea;
+  background-color: #080502;
+  background-image:
+    radial-gradient(ellipse 120% 40% at 50% 0%, rgba(180, 110, 8, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 60% at 0% 100%, rgba(0, 0, 0, 0.65) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 100% 100%, rgba(0, 0, 0, 0.65) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 100% at 50% 50%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.45) 100%),
+    url('/bg-stone.svg');
+  background-size: auto, auto, auto, auto, 120px 60px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  color: #e8d5a3;
 }
 
 .app-header {
-  background: linear-gradient(135deg, #16213e, #0f3460);
+  background: linear-gradient(180deg, #1a0e05 0%, #2a1a08 60%, #1a0e05 100%);
   padding: 2rem;
   text-align: center;
-  border-bottom: 2px solid #e94560;
+  border-bottom: 2px solid #b8860b;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
 }
 
 .app-header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #e94560;
+  color: #f0c040;
+  text-shadow: 0 0 12px rgba(240,192,64,0.5), 0 2px 4px rgba(0,0,0,0.8);
+  letter-spacing: 0.05em;
 }
 
 .app-header p {
   margin: 0.25rem 0 0;
-  color: #a0aec0;
+  color: #9e8c6a;
   font-size: 0.9rem;
 }
 
@@ -34,13 +45,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
-  color: #a0aec0;
+  color: #9e8c6a;
 }
 
 .empty-state {
   text-align: center;
   padding: 4rem;
-  color: #718096;
+  color: #6b5c40;
   font-size: 1.1rem;
 }
 
@@ -51,15 +62,17 @@
 }
 
 .commander-card {
-  background: #16213e;
-  border: 1px solid #2d3748;
-  border-radius: 8px;
+  background: linear-gradient(160deg, #1e1208 0%, #160d05 100%);
+  border: 1px solid #6b4f1a;
+  border-radius: 6px;
   padding: 1.25rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .commander-card:hover {
-  border-color: #e94560;
+  border-color: #c9930c;
+  box-shadow: 0 4px 16px rgba(201,147,12,0.25);
 }
 
 .card-header {
@@ -72,7 +85,7 @@
 .card-header h3 {
   margin: 0;
   font-size: 1.1rem;
-  color: #e2e8f0;
+  color: #f0c040;
 }
 
 .card-actions {
@@ -81,15 +94,16 @@
 }
 
 .stars {
-  color: #f6c90e;
+  color: #ffd700;
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
+  text-shadow: 0 0 6px rgba(255,215,0,0.5);
 }
 
 .skills {
   margin-bottom: 0.75rem;
   font-size: 0.85rem;
-  color: #a0aec0;
+  color: #9e8c6a;
 }
 
 .skills-grid {
@@ -100,18 +114,19 @@
 }
 
 .skill-badge {
-  background: #2d3748;
+  background: #2a1a08;
+  border: 1px solid #6b4f1a;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
-  color: #63b3ed;
+  color: #c9930c;
 }
 
 .notes {
   font-size: 0.85rem;
-  color: #718096;
+  color: #7a6a4a;
   margin-top: 0.5rem;
-  border-top: 1px solid #2d3748;
+  border-top: 1px solid #3d2a10;
   padding-top: 0.5rem;
 }
 
@@ -130,18 +145,27 @@
 }
 
 .btn-primary {
-  background: #e94560;
-  color: white;
+  background: linear-gradient(180deg, #c9930c 0%, #8b6200 100%);
+  color: #1a0e05;
+  border: 1px solid #f0c040;
+  text-shadow: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #f0c040 0%, #c9930c 100%);
+  opacity: 1;
 }
 
 .btn-secondary {
-  background: #2d3748;
-  color: #e2e8f0;
+  background: #2a1a08;
+  color: #c9930c;
+  border: 1px solid #6b4f1a;
 }
 
 .btn-danger {
-  background: #c53030;
-  color: white;
+  background: linear-gradient(180deg, #8b1a1a 0%, #5a0f0f 100%);
+  color: #f5c6c6;
+  border: 1px solid #c0392b;
 }
 
 .btn-sm {
@@ -150,16 +174,18 @@
 }
 
 .form-overlay {
-  background: #0f3460;
-  border: 1px solid #e94560;
-  border-radius: 8px;
+  background: linear-gradient(160deg, #1e1208 0%, #140c04 100%);
+  border: 1px solid #c9930c;
+  border-radius: 6px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.7), inset 0 1px 0 rgba(240,192,64,0.1);
 }
 
 .commander-form h2 {
   margin: 0 0 1.25rem;
-  color: #e94560;
+  color: #f0c040;
+  text-shadow: 0 0 8px rgba(240,192,64,0.4);
 }
 
 .form-group {
@@ -169,7 +195,7 @@
 .form-group label {
   display: block;
   margin-bottom: 0.25rem;
-  color: #a0aec0;
+  color: #9e8c6a;
   font-size: 0.9rem;
 }
 
@@ -178,10 +204,10 @@
 .form-group textarea {
   width: 100%;
   padding: 0.5rem;
-  background: #1a1a2e;
-  border: 1px solid #4a5568;
+  background: #0e0904;
+  border: 1px solid #4a3210;
   border-radius: 4px;
-  color: #e2e8f0;
+  color: #e8d5a3;
   font-size: 0.95rem;
   box-sizing: border-box;
 }
@@ -190,7 +216,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #e94560;
+  border-color: #c9930c;
+  box-shadow: 0 0 0 2px rgba(201,147,12,0.2);
 }
 
 .skills-inputs {
