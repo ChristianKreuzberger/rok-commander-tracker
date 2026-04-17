@@ -1,13 +1,20 @@
 import { useState, useRef, useEffect } from 'react'
 import commandersData from '../../data/commanders.json'
 
-const commanderNames = commandersData.commanders.map(c => c.name)
+const rarityOrder = { Legendary: 0, Epic: 1, Elite: 2 }
+const sortedCommanders = [...commandersData.commanders].sort((a, b) => {
+  const rarityDiff = (rarityOrder[a.rarity] ?? 99) - (rarityOrder[b.rarity] ?? 99)
+  if (rarityDiff !== 0) return rarityDiff
+  return a.name.localeCompare(b.name)
+})
+
+const commanderNames = sortedCommanders.map(c => c.name)
 const commanderLookup = Object.fromEntries(
-  commandersData.commanders.map(c => [c.name.toLowerCase(), c])
+  sortedCommanders.map(c => [c.name.toLowerCase(), c])
 )
-const knownNamesSet = new Set(commandersData.commanders.map(c => c.name.toLowerCase()))
+const knownNamesSet = new Set(sortedCommanders.map(c => c.name.toLowerCase()))
 const canonicalName = Object.fromEntries(
-  commandersData.commanders.map(c => [c.name.toLowerCase(), c.name])
+  sortedCommanders.map(c => [c.name.toLowerCase(), c.name])
 )
 
 function bulkNameStatus(name, trackedNames) {
@@ -214,16 +221,25 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
           <div className="form-group">
             <label>Skill Levels</label>
             <div className="skills-inputs">
-              {data.skills.map((level, i) => (
+              {[0, 1, 2, 3].map(i => (
                 <div key={i} className="skill-input">
-                  <label>S{i + 1}</label>
-                  <select value={level} onChange={e => setSkill(i, e.target.value)}>
+                  <label>{cmdData?.skills?.[i] ?? `Skill ${i + 1}`}</label>
+                  <select value={data.skills[i] ?? 0} onChange={e => setSkill(i, e.target.value)}>
                     {[0, 1, 2, 3, 4, 5].map(l => (
                       <option key={l} value={l}>{l}</option>
                     ))}
                   </select>
                 </div>
               ))}
+              {(() => {
+                const allBaseMaxed = [0, 1, 2, 3].every(i => (data.skills[i] ?? 0) === 5)
+                return (
+                  <div className={`skill-input${!allBaseMaxed ? ' skill-input--locked' : ''}`}>
+                    <label>{cmdData?.skills?.[4] ?? 'Skill 5'}</label>
+                    <span className="skill-badge-max">{allBaseMaxed ? '5' : '—'}</span>
+                  </div>
+                )
+              })()}
             </div>
           </div>
         </>

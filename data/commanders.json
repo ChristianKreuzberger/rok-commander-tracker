@@ -2335,6 +2335,345 @@
         "Holy Sword",
         "King of Camelot"
       ]
+    },
+    {
+      "id": "scipio_africanus_prime",
+      "name": "Scipio Africanus Prime",
+      "title": "Victor of the Second Punic War (Awakened)",
+      "civilization": "rome",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Leadership",
+        "Conquering",
+        "Attack"
+      ],
+      "tags": [
+        "Infantry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Military Life",
+        "Patient Warrior",
+        "Conqueror of Africa",
+        "Genuine Aristocracy",
+        "Glory of Rome"
+      ]
+    },
+    {
+      "id": "sun_tzu_prime",
+      "name": "Sun Tzu Prime",
+      "title": "The Art of War (Awakened)",
+      "civilization": "china",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "PvE"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Art of War",
+        "Philosophy of War",
+        "Master Strategist",
+        "Ever-changing Tactics",
+        "Eternal Strategist"
+      ]
+    },
+    {
+      "id": "joan_of_arc_prime",
+      "name": "Joan of Arc Prime",
+      "title": "The Maid of Orléans (Awakened)",
+      "civilization": "france",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Integration",
+        "Gathering",
+        "Support"
+      ],
+      "tags": [
+        "Garrison",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 15
+      },
+      "skills": [
+        "Divine Revelation",
+        "The Maid of Orléans",
+        "Holy Refuge",
+        "Saint",
+        "Eternal Flame of Faith"
+      ]
+    },
+    {
+      "id": "hermann_prime",
+      "name": "Hermann Prime",
+      "title": "Liberator of Germania (Awakened)",
+      "civilization": "germany",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "PvE",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 35,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Ambush",
+        "Military Genius",
+        "Legend of Teutoburger",
+        "National Hero",
+        "Germania's Shield"
+      ]
+    },
+    {
+      "id": "boudica_prime",
+      "name": "Boudica Prime",
+      "title": "Queen of the Iceni (Awakened)",
+      "civilization": "britain",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Integration",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Support",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 20,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Lament of the Insurgent",
+        "Group Battle",
+        "Celtic Blood",
+        "Queen of the Iceni",
+        "Iron Rebellion"
+      ]
+    },
+    {
+      "id": "eulji_mundeok_prime",
+      "name": "Eulji Mundeok Prime",
+      "title": "Defender of Goryeo (Awakened)",
+      "civilization": "korea",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Infantry",
+        "Garrison",
+        "Attack"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Water Attack",
+        "Cold Welcome",
+        "Battle of Salsu",
+        "Strike Back",
+        "Guardian of Goryeo"
+      ]
+    },
+    {
+      "id": "kusunoki_masashige_prime",
+      "name": "Kusunoki Masashige Prime",
+      "title": "Loyal Samurai (Awakened)",
+      "civilization": "japan",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Archer",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Infantry",
+        "Garrison"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 30,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Shichisei Hōkoku",
+        "The Worthy Man",
+        "Bravery and Wisdom",
+        "Undying Loyalty",
+        "Soul of Japan"
+      ]
+    },
+    {
+      "id": "pelagius_prime",
+      "name": "Pelagius Prime",
+      "title": "Champion of the Reconquista (Awakened)",
+      "civilization": "spain",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Cavalry",
+        "Garrison",
+        "Skill"
+      ],
+      "tags": [
+        "Cavalry",
+        "Support",
+        "PvP"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 25,
+        "troop_hp": 30,
+        "march_speed": 0
+      },
+      "skills": [
+        "Charge",
+        "Founder of Asturias",
+        "Retaking Lost Territory",
+        "The Mutineer",
+        "Crusader's Might"
+      ]
+    },
+    {
+      "id": "aethelflaed_prime",
+      "name": "Aethelflaed Prime",
+      "title": "Lady of the Mercians (Awakened)",
+      "civilization": "britain",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Support",
+        "Peacekeeping"
+      ],
+      "tags": [
+        "Support",
+        "PvE",
+        "Debuffer",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 10,
+        "troop_defense": 25,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Lady of the Mercians",
+        "Shield Wall",
+        "Anglo-Saxon Chronicle",
+        "Heart of England",
+        "Iron Queen of Mercia"
+      ]
+    },
+    {
+      "id": "lohar_prime",
+      "name": "Lohar Prime",
+      "title": "Ironclad Fist (Awakened)",
+      "civilization": "any",
+      "rarity": "Legendary",
+      "gender": "male",
+      "specialties": [
+        "Integration",
+        "Peacekeeping",
+        "Support"
+      ],
+      "tags": [
+        "Infantry",
+        "PvE",
+        "Peacekeeping"
+      ],
+      "base_stats": {
+        "troop_attack": 30,
+        "troop_defense": 20,
+        "troop_hp": 25,
+        "march_speed": 0
+      },
+      "skills": [
+        "Overwhelming Force",
+        "Sanction",
+        "Lohar's Trial",
+        "Unruly Blood",
+        "Ironclad Champion"
+      ]
+    },
+    {
+      "id": "keira_prime",
+      "name": "Keira Prime",
+      "title": "The Red Chameleon (Awakened)",
+      "civilization": "any",
+      "rarity": "Legendary",
+      "gender": "female",
+      "specialties": [
+        "Archer",
+        "Peacekeeping",
+        "Skill"
+      ],
+      "tags": [
+        "Peacekeeping",
+        "PvE",
+        "Skill Damage"
+      ],
+      "base_stats": {
+        "troop_attack": 25,
+        "troop_defense": 20,
+        "troop_hp": 20,
+        "march_speed": 0
+      },
+      "skills": [
+        "Dance of the Flametongue",
+        "Allies or Enemies?",
+        "Ceroli Sharpshooter",
+        "The Mutineer",
+        "Eternal Flame"
+      ]
     }
   ]
 }

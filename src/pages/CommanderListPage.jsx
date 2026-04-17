@@ -2,7 +2,6 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Swords } from 'lucide-react'
 import CommanderCard from '../components/CommanderCard'
-import CommanderForm from '../components/CommanderForm'
 import commandersData from '../../data/commanders.json'
 
 const commanderLookup = Object.fromEntries(
@@ -111,9 +110,8 @@ const ALL_RARITIES = ['Legendary', 'Epic', 'Elite', 'Advanced']
 const RARITY_ORDER = { Legendary: 0, Epic: 1, Elite: 2, Advanced: 3 }
 const ALL_SPECIALTIES = [...new Set(commandersData.commanders.flatMap(c => c.specialties))].sort()
 
-function CommanderListPage({ commanders, onAdd, onEdit, onDelete }) {
+function CommanderListPage({ commanders, onAdd, onDelete }) {
   const navigate = useNavigate()
-  const [editingCommander, setEditingCommander] = useState(null)
   const [isAddingInline, setIsAddingInline] = useState(false)
 
   const handleInlineAdd = (name) => {
@@ -125,14 +123,7 @@ function CommanderListPage({ commanders, onAdd, onEdit, onDelete }) {
   const [filterSpecialty, setFilterSpecialty] = useState('')
   const [sortBy, setSortBy] = useState('name')
 
-  const handleEditClick = (commander) => setEditingCommander(commander)
-
-  const handleCancelEdit = () => setEditingCommander(null)
-
-  const handleEditSubmit = (updated) => {
-    onEdit(updated)
-    setEditingCommander(null)
-  }
+  const handleEditClick = (commander) => navigate('/edit/' + encodeURIComponent(commander.primary.name))
 
   const displayedCommanders = useMemo(() => {
     let result = [...commanders]
@@ -224,14 +215,6 @@ function CommanderListPage({ commanders, onAdd, onEdit, onDelete }) {
             </button>
           )}
         </div>
-      )}
-
-      {editingCommander && (
-        <CommanderForm
-          commander={editingCommander}
-          onSubmit={handleEditSubmit}
-          onCancel={handleCancelEdit}
-        />
       )}
 
       {commanders.length === 0 ? (

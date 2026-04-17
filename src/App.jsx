@@ -3,6 +3,7 @@ import { useLocalStorage } from './hooks/useLocalStorage'
 import SettingsMenu from './components/SettingsMenu'
 import CommanderListPage from './pages/CommanderListPage'
 import AddCommanderPage from './pages/AddCommanderPage'
+import EditCommanderPage from './pages/EditCommanderPage'
 import civilizationsData from '../data/civilizations.json'
 import './App.css'
 
@@ -56,7 +57,6 @@ function App() {
             <CommanderListPage
               commanders={commanders}
               onAdd={handleAdd}
-              onEdit={handleEdit}
               onDelete={handleDelete}
             />
           }
@@ -64,6 +64,10 @@ function App() {
         <Route
           path="/add"
           element={<AddCommanderPage onAdd={handleAdd} onAddMany={handleAddMany} commanders={commanders} />}
+        />
+        <Route
+          path="/edit/:name"
+          element={<EditCommanderPage commanders={commanders} onEdit={handleEdit} />}
         />
       </Routes>
     </div>

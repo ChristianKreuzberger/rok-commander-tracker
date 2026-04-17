@@ -513,8 +513,9 @@
 
 .skill-input {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
 .skill-input label {
@@ -526,6 +527,25 @@
 .skill-input select {
   width: 60px;
   padding: 0.35rem;
+  align-self: flex-start;
+}
+
+.skill-input--locked {
+  opacity: 0.4;
+}
+
+.skill-badge-max {
+  display: inline-block;
+  width: 60px;
+  padding: 0.35rem;
+  background: var(--input-bg, #2d3748);
+  border: 1px solid var(--input-border, #4a5568);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  align-self: flex-start;
 }
 
 .btn-advanced-toggle {
