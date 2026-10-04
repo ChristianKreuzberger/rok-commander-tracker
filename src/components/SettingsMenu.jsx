@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
+import { parseImport, selectImportable } from '../lib/commanders'
 import { version } from '../../package.json'
-
 
 function readLocalStorage() {
   const data = {}
@@ -15,7 +15,11 @@ function readLocalStorage() {
   return data
 }
 
-export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilizations }) {
+export default function SettingsMenu({
+  selectedCiv,
+  setSelectedCiv,
+  civilizations,
+}) {
   const [open, setOpen] = useState(false)
   const [inspecting, setInspecting] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -40,7 +44,9 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
 
   const handleExport = () => {
     const data = readLocalStorage()
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: 'application/json',
+    })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
@@ -78,18 +84,14 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
     const reader = new FileReader()
     reader.onload = (ev) => {
       try {
-        const parsed = JSON.parse(ev.target.result)
-        if (typeof parsed !== 'object' || parsed === null || !Array.isArray(parsed['rok-commanders'])) {
-          setImportPreview({ error: 'Invalid file format. Expected a RoK Tracker export.' })
-          return
-        }
-        const incoming = parsed['rok-commanders']
-        const existing = JSON.parse(localStorage.getItem('rok-commanders') || '[]')
-        const existingNames = new Set(existing.map(c => c.primary?.name?.trim().toLowerCase()))
-        const toAdd = incoming.filter(c => c.primary?.name && !existingNames.has(c.primary.name.trim().toLowerCase()))
-        setImportPreview({ added: toAdd.length, skipped: incoming.length - toAdd.length, data: parsed })
+        const existing = JSON.parse(
+          localStorage.getItem('rok-commanders') || '[]',
+        )
+        setImportPreview(parseImport(ev.target.result, existing))
       } catch {
-        setImportPreview({ error: 'Could not parse file. Make sure it is a valid JSON export.' })
+        setImportPreview({
+          error: 'Could not parse file. Make sure it is a valid JSON export.',
+        })
       }
     }
     reader.readAsText(file)
@@ -98,13 +100,17 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
   const handleConfirmImport = () => {
     if (!importPreview || importPreview.error) return
     const { data } = importPreview
-    const incoming = data['rok-commanders']
     const existing = JSON.parse(localStorage.getItem('rok-commanders') || '[]')
-    const existingNames = new Set(existing.map(c => c.primary?.name?.trim().toLowerCase()))
-    const toAdd = incoming.filter(c => c.primary?.name && !existingNames.has(c.primary.name.trim().toLowerCase()))
-    localStorage.setItem('rok-commanders', JSON.stringify([...existing, ...toAdd]))
+    const toAdd = selectImportable(data['rok-commanders'], existing)
+    localStorage.setItem(
+      'rok-commanders',
+      JSON.stringify([...existing, ...toAdd]),
+    )
     if (data['rok-civilization']) {
-      localStorage.setItem('rok-civilization', JSON.stringify(data['rok-civilization']))
+      localStorage.setItem(
+        'rok-civilization',
+        JSON.stringify(data['rok-civilization']),
+      )
     }
     setImportPreview(null)
     setOpen(false)
@@ -115,12 +121,20 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
     <div className="settings-menu" ref={ref}>
       <button
         className="btn btn-icon settings-btn"
-        onClick={() => setOpen(o => !o)}
+        onClick={() => setOpen((o) => !o)}
         title="Settings / Help"
         aria-expanded={open}
       >
-        <svg className="settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-          <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08s-.03-.74-.07-1.08l2.3-1.8c.21-.16.27-.45.13-.68l-2.18-3.78a.52.52 0 0 0-.64-.22l-2.71 1.09c-.57-.44-1.18-.81-1.86-1.09l-.41-2.88A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.41 2.88c-.68.28-1.29.65-1.86 1.09L4.52 5.3a.5.5 0 0 0-.64.22L1.7 9.3c-.14.23-.08.52.13.68l2.3 1.8c-.04.34-.07.7-.07 1.08s.03.74.07 1.08l-2.3 1.8c-.21.16-.27.45-.13.68l2.18 3.78c.13.23.41.31.64.22l2.71-1.09c.57.44 1.18.81 1.86 1.09l.41 2.88c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.41-2.88c.68-.28 1.29-.65 1.86-1.09l2.71 1.09c.23.09.51 0 .64-.22l2.18-3.78c.14-.23.08-.52-.13-.68l-2.3-1.8z"/>
+        <svg
+          className="settings-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08s-.03-.74-.07-1.08l2.3-1.8c.21-.16.27-.45.13-.68l-2.18-3.78a.52.52 0 0 0-.64-.22l-2.71 1.09c-.57-.44-1.18-.81-1.86-1.09l-.41-2.88A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.41 2.88c-.68.28-1.29.65-1.86 1.09L4.52 5.3a.5.5 0 0 0-.64.22L1.7 9.3c-.14.23-.08.52.13.68l2.3 1.8c-.04.34-.07.7-.07 1.08s.03.74.07 1.08l-2.3 1.8c-.21.16-.27.45-.13.68l2.18 3.78c.13.23.41.31.64.22l2.71-1.09c.57.44 1.18.81 1.86 1.09l.41 2.88c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.41-2.88c.68-.28 1.29-.65 1.86-1.09l2.71 1.09c.23.09.51 0 .64-.22l2.18-3.78c.14-.23.08-.52-.13-.68l-2.3-1.8z" />
         </svg>
       </button>
 
@@ -134,16 +148,20 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
           <div className="settings-divider" />
 
           <div className="settings-row">
-            <label htmlFor="civ-select-settings" className="settings-label">Civilization</label>
+            <label htmlFor="civ-select-settings" className="settings-label">
+              Civilization
+            </label>
             <select
               id="civ-select-settings"
               className="civ-select"
               value={selectedCiv}
-              onChange={e => setSelectedCiv(e.target.value)}
+              onChange={(e) => setSelectedCiv(e.target.value)}
             >
               <option value="">— Select —</option>
-              {civilizations.map(civ => (
-                <option key={civ.id} value={civ.id}>{civ.name}</option>
+              {civilizations.map((civ) => (
+                <option key={civ.id} value={civ.id}>
+                  {civ.name}
+                </option>
               ))}
             </select>
           </div>
@@ -156,28 +174,45 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
               <div className="settings-actions">
                 <button
                   className="btn btn-secondary btn-sm"
-                  onClick={() => setInspecting(v => !v)}
+                  onClick={() => setInspecting((v) => !v)}
                 >
                   {inspecting ? 'Hide' : 'Inspect'}
                 </button>
-                <button className="btn btn-secondary btn-sm" onClick={handleExport}>
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={handleExport}
+                >
                   Export JSON
                 </button>
-                <button className="btn btn-secondary btn-sm" onClick={handleImportClick}>
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={handleImportClick}
+                >
                   Import JSON
                 </button>
-                <button className="btn btn-danger btn-sm" onClick={() => setConfirmingClear(true)}>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => setConfirmingClear(true)}
+                >
                   Clear All Data
                 </button>
               </div>
             ) : (
               <div className="settings-clear-confirm">
-                <span className="settings-warn">This will permanently delete all your data. Are you sure?</span>
+                <span className="settings-warn">
+                  This will permanently delete all your data. Are you sure?
+                </span>
                 <div className="settings-actions">
-                  <button className="btn btn-danger btn-sm" onClick={handleClearStorage}>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={handleClearStorage}
+                  >
                     Yes, clear everything
                   </button>
-                  <button className="btn btn-secondary btn-sm" onClick={() => setConfirmingClear(false)}>
+                  <button
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => setConfirmingClear(false)}
+                  >
                     Cancel
                   </button>
                 </div>
@@ -191,17 +226,26 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
                 <span className="settings-warn">{importPreview.error}</span>
               ) : (
                 <span className="settings-label">
-                  {importPreview.added} commander{importPreview.added !== 1 ? 's' : ''} will be added
-                  {importPreview.skipped > 0 && `, ${importPreview.skipped} duplicate${importPreview.skipped !== 1 ? 's' : ''} skipped`}.
+                  {importPreview.added} commander
+                  {importPreview.added !== 1 ? 's' : ''} will be added
+                  {importPreview.skipped > 0 &&
+                    `, ${importPreview.skipped} duplicate${importPreview.skipped !== 1 ? 's' : ''} skipped`}
+                  .
                 </span>
               )}
               <div className="settings-actions">
                 {!importPreview.error && (
-                  <button className="btn btn-primary btn-sm" onClick={handleConfirmImport}>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={handleConfirmImport}
+                  >
                     Confirm Import
                   </button>
                 )}
-                <button className="btn btn-secondary btn-sm" onClick={() => setImportPreview(null)}>
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => setImportPreview(null)}
+                >
                   Cancel
                 </button>
               </div>
@@ -210,7 +254,10 @@ export default function SettingsMenu({ selectedCiv, setSelectedCiv, civilization
 
           {inspecting && (
             <div className="settings-data-wrap">
-              <button className="btn btn-secondary btn-sm settings-copy-btn" onClick={handleCopy}>
+              <button
+                className="btn btn-secondary btn-sm settings-copy-btn"
+                onClick={handleCopy}
+              >
                 {copied ? '✓ Copied' : 'Copy'}
               </button>
               <pre className="settings-data">

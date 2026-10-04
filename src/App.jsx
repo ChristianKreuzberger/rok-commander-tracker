@@ -4,6 +4,12 @@ import SettingsMenu from './components/SettingsMenu'
 import CommanderListPage from './pages/CommanderListPage'
 import AddCommanderPage from './pages/AddCommanderPage'
 import EditCommanderPage from './pages/EditCommanderPage'
+import {
+  addCommander,
+  editCommander,
+  deleteCommander,
+  addManyCommanders,
+} from './lib/commanders'
 import civilizationsData from '../data/civilizations.json'
 import './App.css'
 
@@ -13,30 +19,14 @@ function App() {
 
   const civilizations = civilizationsData.civilizations
 
-  const handleAdd = (commander) => {
-    const name = commander.primary.name.trim().toLowerCase()
-    if (commanders.some(c => c.primary.name.trim().toLowerCase() === name)) return
-    const now = Date.now()
-    setCommanders([...commanders, { ...commander, createdAt: now, lastUpdatedAt: now }])
-  }
-
-  const handleEdit = (updated) => {
-    setCommanders(commanders.map(c =>
-      c.primary.name.trim().toLowerCase() === updated.primary.name.trim().toLowerCase()
-        ? { ...updated, lastUpdatedAt: Date.now() }
-        : c
-    ))
-  }
-
-  const handleDelete = (name) => {
-    setCommanders(commanders.filter(c => c.primary.name.trim().toLowerCase() !== name.trim().toLowerCase()))
-  }
-
-  const handleAddMany = (newCommanders) => {
-    const trackedNames = new Set(commanders.map(c => c.primary.name.trim().toLowerCase()))
-    const toAdd = newCommanders.filter(c => !trackedNames.has(c.primary.name.trim().toLowerCase()))
-    setCommanders([...commanders, ...toAdd])
-  }
+  const handleAdd = (commander) =>
+    setCommanders(addCommander(commanders, commander))
+  const handleEdit = (updated) =>
+    setCommanders(editCommander(commanders, updated))
+  const handleDelete = (name) =>
+    setCommanders(deleteCommander(commanders, name))
+  const handleAddMany = (newCommanders) =>
+    setCommanders(addManyCommanders(commanders, newCommanders))
 
   return (
     <div className="app">
@@ -63,15 +53,30 @@ function App() {
         />
         <Route
           path="/add"
-          element={<AddCommanderPage onAdd={handleAdd} onAddMany={handleAddMany} commanders={commanders} />}
+          element={
+            <AddCommanderPage
+              onAdd={handleAdd}
+              onAddMany={handleAddMany}
+              commanders={commanders}
+            />
+          }
         />
         <Route
           path="/edit/:name"
-          element={<EditCommanderPage commanders={commanders} onEdit={handleEdit} />}
+          element={
+            <EditCommanderPage commanders={commanders} onEdit={handleEdit} />
+          }
         />
       </Routes>
       <footer className="app-footer">
-        Made with ❤️ on <a href="https://github.com/ChristianKreuzberger/rok-commander-tracker" target="_blank" rel="noopener noreferrer">GitHub</a>
+        Made with ❤️ on{' '}
+        <a
+          href="https://github.com/ChristianKreuzberger/rok-commander-tracker"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
       </footer>
     </div>
   )
