@@ -1,5 +1,26 @@
 import { useState } from 'react'
-import { Pencil, Trash2, Shield, Zap, Crosshair, Castle, Crown, Heart, Flag, Package, Swords, Layers, Shuffle, Wind, Sparkles, ShieldCheck, Sword, ChevronDown, ChevronRight } from 'lucide-react'
+import {
+  Pencil,
+  Trash2,
+  Shield,
+  Zap,
+  Crosshair,
+  Castle,
+  Crown,
+  Heart,
+  Flag,
+  Package,
+  Swords,
+  Layers,
+  Shuffle,
+  Wind,
+  Sparkles,
+  ShieldCheck,
+  Sword,
+  ChevronDown,
+  ChevronRight,
+} from 'lucide-react'
+import { isMaxed } from '../lib/commanders'
 import commandersData from '../../data/commanders.json'
 
 const SPECIALTY_ICONS = {
@@ -21,16 +42,8 @@ const SPECIALTY_ICONS = {
 }
 
 const commanderLookup = Object.fromEntries(
-  commandersData.commanders.map(c => [c.name.toLowerCase(), c])
+  commandersData.commanders.map((c) => [c.name.toLowerCase(), c]),
 )
-
-function isMaxed(primary) {
-  return (
-    primary.stars === 6 &&
-    primary.level === 60 &&
-    primary.skills.every(s => s === 5)
-  )
-}
 
 function CommanderCard({ commander, onEdit, onDelete }) {
   const { primary, notes } = commander
@@ -39,7 +52,9 @@ function CommanderCard({ commander, onEdit, onDelete }) {
   const [collapsed, setCollapsed] = useState(maxed)
 
   const renderStars = (count) => '★'.repeat(count) + '☆'.repeat(6 - count)
-  const rarityClass = cmdData?.rarity ? `card-rarity-${cmdData.rarity.toLowerCase()}` : ''
+  const rarityClass = cmdData?.rarity
+    ? `card-rarity-${cmdData.rarity.toLowerCase()}`
+    : ''
 
   if (collapsed) {
     return (
@@ -52,12 +67,33 @@ function CommanderCard({ commander, onEdit, onDelete }) {
           >
             <ChevronRight size={14} />
           </button>
-          <h3 className="card-collapsed-name" onClick={() => setCollapsed(false)}>{primary.name}</h3>
+          <h3
+            className="card-collapsed-name"
+            onClick={() => setCollapsed(false)}
+          >
+            {primary.name}
+          </h3>
           {maxed && <span className="maxed-badge">MAX</span>}
-          {!maxed && <span className="card-collapsed-stars">{renderStars(primary.stars)}</span>}
+          {!maxed && (
+            <span className="card-collapsed-stars">
+              {renderStars(primary.stars)}
+            </span>
+          )}
           <div className="card-actions">
-            <button className="btn btn-sm btn-secondary btn-icon" onClick={() => onEdit(commander)} title="Edit"><Pencil size={16} /></button>
-            <button className="btn btn-sm btn-danger btn-icon" onClick={() => onDelete(commander.primary.name)} title="Delete"><Trash2 size={16} /></button>
+            <button
+              className="btn btn-sm btn-secondary btn-icon"
+              onClick={() => onEdit(commander)}
+              title="Edit"
+            >
+              <Pencil size={16} />
+            </button>
+            <button
+              className="btn btn-sm btn-danger btn-icon"
+              onClick={() => onDelete(commander.primary.name)}
+              title="Delete"
+            >
+              <Trash2 size={16} />
+            </button>
           </div>
         </div>
       </div>
@@ -79,15 +115,27 @@ function CommanderCard({ commander, onEdit, onDelete }) {
           {maxed && <span className="maxed-badge">MAX</span>}
         </div>
         <div className="card-actions">
-          <button className="btn btn-sm btn-secondary btn-icon" onClick={() => onEdit(commander)} title="Edit"><Pencil size={16} /></button>
-          <button className="btn btn-sm btn-danger btn-icon" onClick={() => onDelete(commander.primary.name)} title="Delete"><Trash2 size={16} /></button>
+          <button
+            className="btn btn-sm btn-secondary btn-icon"
+            onClick={() => onEdit(commander)}
+            title="Edit"
+          >
+            <Pencil size={16} />
+          </button>
+          <button
+            className="btn btn-sm btn-danger btn-icon"
+            onClick={() => onDelete(commander.primary.name)}
+            title="Delete"
+          >
+            <Trash2 size={16} />
+          </button>
         </div>
       </div>
 
       {cmdData && (
         <div className="card-cmd-info">
           <div className="cmd-preview-specialties">
-            {cmdData.specialties.map(s => {
+            {cmdData.specialties.map((s) => {
               const Icon = SPECIALTY_ICONS[s]
               return (
                 <span key={s} className="specialty-badge">
@@ -98,10 +146,26 @@ function CommanderCard({ commander, onEdit, onDelete }) {
             })}
           </div>
           <div className="cmd-preview-stats">
-            {cmdData.base_stats.troop_attack > 0 && <span className="stat-chip stat-atk">ATK +{cmdData.base_stats.troop_attack}%</span>}
-            {cmdData.base_stats.troop_defense > 0 && <span className="stat-chip stat-def">DEF +{cmdData.base_stats.troop_defense}%</span>}
-            {cmdData.base_stats.troop_hp > 0 && <span className="stat-chip stat-hp">HP +{cmdData.base_stats.troop_hp}%</span>}
-            {cmdData.base_stats.march_speed > 0 && <span className="stat-chip stat-spd">SPD +{cmdData.base_stats.march_speed}%</span>}
+            {cmdData.base_stats.troop_attack > 0 && (
+              <span className="stat-chip stat-atk">
+                ATK +{cmdData.base_stats.troop_attack}%
+              </span>
+            )}
+            {cmdData.base_stats.troop_defense > 0 && (
+              <span className="stat-chip stat-def">
+                DEF +{cmdData.base_stats.troop_defense}%
+              </span>
+            )}
+            {cmdData.base_stats.troop_hp > 0 && (
+              <span className="stat-chip stat-hp">
+                HP +{cmdData.base_stats.troop_hp}%
+              </span>
+            )}
+            {cmdData.base_stats.march_speed > 0 && (
+              <span className="stat-chip stat-spd">
+                SPD +{cmdData.base_stats.march_speed}%
+              </span>
+            )}
           </div>
         </div>
       )}
@@ -115,7 +179,12 @@ function CommanderCard({ commander, onEdit, onDelete }) {
       <div className="skills-row">
         <span className="skills-label">Skills:</span>
         {primary.skills.map((level, i) => (
-          <span key={i} className={`skill-num${level !== 5 ? ' skill-dimmed' : ''}`}>{level}</span>
+          <span
+            key={i}
+            className={`skill-num${level !== 5 ? ' skill-dimmed' : ''}`}
+          >
+            {level}
+          </span>
         ))}
       </div>
 

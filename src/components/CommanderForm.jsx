@@ -1,28 +1,27 @@
 import { useState, useRef, useEffect } from 'react'
+import {
+  bulkNameStatus,
+  parseBulkNames,
+  normalizeName,
+} from '../lib/commanders'
 import commandersData from '../../data/commanders.json'
 
 const rarityOrder = { Legendary: 0, Epic: 1, Elite: 2 }
 const sortedCommanders = [...commandersData.commanders].sort((a, b) => {
-  const rarityDiff = (rarityOrder[a.rarity] ?? 99) - (rarityOrder[b.rarity] ?? 99)
+  const rarityDiff =
+    (rarityOrder[a.rarity] ?? 99) - (rarityOrder[b.rarity] ?? 99)
   if (rarityDiff !== 0) return rarityDiff
   return a.name.localeCompare(b.name)
 })
 
-const commanderNames = sortedCommanders.map(c => c.name)
+const commanderNames = sortedCommanders.map((c) => c.name)
 const commanderLookup = Object.fromEntries(
-  sortedCommanders.map(c => [c.name.toLowerCase(), c])
+  sortedCommanders.map((c) => [c.name.toLowerCase(), c]),
 )
-const knownNamesSet = new Set(sortedCommanders.map(c => c.name.toLowerCase()))
+const knownNamesSet = new Set(sortedCommanders.map((c) => c.name.toLowerCase()))
 const canonicalName = Object.fromEntries(
-  sortedCommanders.map(c => [c.name.toLowerCase(), c.name])
+  sortedCommanders.map((c) => [c.name.toLowerCase(), c.name]),
 )
-
-function bulkNameStatus(name, trackedNames) {
-  const lower = name.toLowerCase()
-  if (trackedNames.has(lower)) return 'duplicate'
-  if (knownNamesSet.has(lower)) return 'known'
-  return 'unknown'
-}
 
 const defaultCommander = {
   name: '',
@@ -39,7 +38,9 @@ function CommanderCombobox({ value, onChange, required }) {
   const listRef = useRef(null)
 
   const filtered = value.trim()
-    ? commanderNames.filter(n => n.toLowerCase().includes(value.toLowerCase()))
+    ? commanderNames.filter((n) =>
+        n.toLowerCase().includes(value.toLowerCase()),
+      )
     : commanderNames
 
   const select = (name) => {
@@ -51,18 +52,22 @@ function CommanderCombobox({ value, onChange, required }) {
 
   const handleKeyDown = (e) => {
     if (!open) {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { setOpen(true); return }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        setOpen(true)
+        return
+      }
       return
     }
     if (e.key === 'ArrowDown') {
       e.preventDefault()
-      setActiveIndex(i => Math.min(i + 1, filtered.length - 1))
+      setActiveIndex((i) => Math.min(i + 1, filtered.length - 1))
     } else if (e.key === 'ArrowUp') {
       e.preventDefault()
-      setActiveIndex(i => Math.max(i - 1, 0))
+      setActiveIndex((i) => Math.max(i - 1, 0))
     } else if (e.key === 'Enter') {
       e.preventDefault()
-      if (activeIndex >= 0 && filtered[activeIndex]) select(filtered[activeIndex])
+      if (activeIndex >= 0 && filtered[activeIndex])
+        select(filtered[activeIndex])
       else setOpen(false)
     } else if (e.key === 'Escape') {
       setOpen(false)
@@ -97,7 +102,11 @@ function CommanderCombobox({ value, onChange, required }) {
           ref={inputRef}
           type="text"
           value={value}
-          onChange={e => { onChange(e.target.value); setOpen(true); setActiveIndex(-1) }}
+          onChange={(e) => {
+            onChange(e.target.value)
+            setOpen(true)
+            setActiveIndex(-1)
+          }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="Commander name"
@@ -110,9 +119,14 @@ function CommanderCombobox({ value, onChange, required }) {
           type="button"
           className="combobox-chevron"
           tabIndex={-1}
-          onClick={() => { setOpen(o => !o); inputRef.current?.focus() }}
+          onClick={() => {
+            setOpen((o) => !o)
+            inputRef.current?.focus()
+          }}
           aria-label="Toggle list"
-        >▾</button>
+        >
+          ▾
+        </button>
       </div>
       {open && filtered.length > 0 && (
         <ul className="combobox-list" ref={listRef} role="listbox">
@@ -153,7 +167,7 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
         <label>Name</label>
         <CommanderCombobox
           value={data.name}
-          onChange={name => setField('name', name)}
+          onChange={(name) => setField('name', name)}
           required={required}
         />
       </div>
@@ -163,15 +177,33 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
           <div className="cmd-preview-title">{cmdData.title}</div>
           <div className="cmd-preview-row">
             <div className="cmd-preview-specialties">
-              {cmdData.specialties.map(s => (
-                <span key={s} className="specialty-badge">{s}</span>
+              {cmdData.specialties.map((s) => (
+                <span key={s} className="specialty-badge">
+                  {s}
+                </span>
               ))}
             </div>
             <div className="cmd-preview-stats">
-              {cmdData.base_stats.troop_attack > 0 && <span className="stat-chip stat-atk">ATK +{cmdData.base_stats.troop_attack}%</span>}
-              {cmdData.base_stats.troop_defense > 0 && <span className="stat-chip stat-def">DEF +{cmdData.base_stats.troop_defense}%</span>}
-              {cmdData.base_stats.troop_hp > 0 && <span className="stat-chip stat-hp">HP +{cmdData.base_stats.troop_hp}%</span>}
-              {cmdData.base_stats.march_speed > 0 && <span className="stat-chip stat-spd">SPD +{cmdData.base_stats.march_speed}%</span>}
+              {cmdData.base_stats.troop_attack > 0 && (
+                <span className="stat-chip stat-atk">
+                  ATK +{cmdData.base_stats.troop_attack}%
+                </span>
+              )}
+              {cmdData.base_stats.troop_defense > 0 && (
+                <span className="stat-chip stat-def">
+                  DEF +{cmdData.base_stats.troop_defense}%
+                </span>
+              )}
+              {cmdData.base_stats.troop_hp > 0 && (
+                <span className="stat-chip stat-hp">
+                  HP +{cmdData.base_stats.troop_hp}%
+                </span>
+              )}
+              {cmdData.base_stats.march_speed > 0 && (
+                <span className="stat-chip stat-spd">
+                  SPD +{cmdData.base_stats.march_speed}%
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -183,25 +215,29 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
             <div className="form-group">
               <label>Stars</label>
               <div className="star-picker">
-                {[1, 2, 3, 4, 5, 6].map(s => (
+                {[1, 2, 3, 4, 5, 6].map((s) => (
                   <button
                     key={s}
                     type="button"
                     className={`star-btn${s <= data.stars ? ' active' : ''}`}
                     onClick={() => setField('stars', s)}
-                  >★</button>
+                  >
+                    ★
+                  </button>
                 ))}
               </div>
             </div>
 
             <div className="form-group">
-              <label>Level — <span className="level-value">{data.level}</span></label>
+              <label>
+                Level — <span className="level-value">{data.level}</span>
+              </label>
               <input
                 type="range"
                 min={1}
                 max={60}
                 value={data.level}
-                onChange={e => setField('level', Number(e.target.value))}
+                onChange={(e) => setField('level', Number(e.target.value))}
                 className="level-slider"
               />
             </div>
@@ -213,7 +249,12 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
                 min={0}
                 max={74}
                 value={data.talents}
-                onChange={e => setField('talents', Math.min(74, Math.max(0, Number(e.target.value))))}
+                onChange={(e) =>
+                  setField(
+                    'talents',
+                    Math.min(74, Math.max(0, Number(e.target.value))),
+                  )
+                }
               />
             </div>
           </div>
@@ -221,22 +262,33 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
           <div className="form-group">
             <label>Skill Levels</label>
             <div className="skills-inputs">
-              {[0, 1, 2, 3].map(i => (
+              {[0, 1, 2, 3].map((i) => (
                 <div key={i} className="skill-input">
                   <label>{cmdData?.skills?.[i] ?? `Skill ${i + 1}`}</label>
-                  <select value={data.skills[i] ?? 0} onChange={e => setSkill(i, e.target.value)}>
-                    {[0, 1, 2, 3, 4, 5].map(l => (
-                      <option key={l} value={l}>{l}</option>
+                  <select
+                    value={data.skills[i] ?? 0}
+                    onChange={(e) => setSkill(i, e.target.value)}
+                  >
+                    {[0, 1, 2, 3, 4, 5].map((l) => (
+                      <option key={l} value={l}>
+                        {l}
+                      </option>
                     ))}
                   </select>
                 </div>
               ))}
               {(() => {
-                const allBaseMaxed = [0, 1, 2, 3].every(i => (data.skills[i] ?? 0) === 5)
+                const allBaseMaxed = [0, 1, 2, 3].every(
+                  (i) => (data.skills[i] ?? 0) === 5,
+                )
                 return (
-                  <div className={`skill-input${!allBaseMaxed ? ' skill-input--locked' : ''}`}>
+                  <div
+                    className={`skill-input${!allBaseMaxed ? ' skill-input--locked' : ''}`}
+                  >
                     <label>{cmdData?.skills?.[4] ?? 'Skill 5'}</label>
-                    <span className="skill-badge-max">{allBaseMaxed ? '5' : '—'}</span>
+                    <span className="skill-badge-max">
+                      {allBaseMaxed ? '5' : '—'}
+                    </span>
                   </div>
                 )
               })()}
@@ -248,7 +300,13 @@ function CommanderSection({ label, data, onChange, required, showAdvanced }) {
   )
 }
 
-function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCommanders = [] }) {
+function CommanderForm({
+  commander,
+  onSubmit,
+  onCancel,
+  onSubmitMany,
+  existingCommanders = [],
+}) {
   const [showAdvanced, setShowAdvanced] = useState(!!commander)
   const [formData, setFormData] = useState(() => {
     if (commander) {
@@ -276,18 +334,22 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
   const isBulk = !commander && formData.primary.name.includes(',')
 
   if (isBulk) {
-    const trackedNames = new Set(existingCommanders.map(c => c.primary.name.trim().toLowerCase()))
-    const names = formData.primary.name.split(',').map(n => n.trim()).filter(Boolean)
-    const entries = names.map(name => ({
+    const trackedNames = new Set(
+      existingCommanders.map((c) => normalizeName(c.primary.name)),
+    )
+    const names = parseBulkNames(formData.primary.name)
+    const entries = names.map((name) => ({
       name,
-      status: bulkNameStatus(name, trackedNames),
+      status: bulkNameStatus(name, trackedNames, knownNamesSet),
       displayName: canonicalName[name.toLowerCase()] ?? name,
     }))
-    const toAdd = entries.filter(e => e.status !== 'duplicate')
+    const toAdd = entries.filter((e) => e.status !== 'duplicate')
 
     const handleBulkSubmit = (e) => {
       e.preventDefault()
       if (toAdd.length === 0) return
+      // Runs in a submit handler, not during render; the purity rule is a false positive here.
+      // eslint-disable-next-line react-hooks/purity
       const now = Date.now()
       const cmds = toAdd.map(({ displayName }) => ({
         primary: { ...defaultCommander, name: displayName },
@@ -309,7 +371,12 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
             <input
               type="text"
               value={formData.primary.name}
-              onChange={e => setFormData({ ...formData, primary: { ...formData.primary, name: e.target.value } })}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  primary: { ...formData.primary, name: e.target.value },
+                })
+              }
               placeholder="Alexander, Caesar, Saladin"
               autoComplete="off"
             />
@@ -322,14 +389,20 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
                   key={i}
                   className={`mass-chip mass-chip--${entry.status}`}
                   title={
-                    entry.status === 'duplicate' ? 'Already tracked — will be skipped'
-                    : entry.status === 'unknown' ? 'Not in commander database — will still be added'
-                    : 'Known commander'
+                    entry.status === 'duplicate'
+                      ? 'Already tracked — will be skipped'
+                      : entry.status === 'unknown'
+                        ? 'Not in commander database — will still be added'
+                        : 'Known commander'
                   }
                 >
                   {entry.displayName}
-                  {entry.status === 'duplicate' && <span className="mass-chip-badge">skip</span>}
-                  {entry.status === 'unknown' && <span className="mass-chip-badge">?</span>}
+                  {entry.status === 'duplicate' && (
+                    <span className="mass-chip-badge">skip</span>
+                  )}
+                  {entry.status === 'unknown' && (
+                    <span className="mass-chip-badge">?</span>
+                  )}
                 </span>
               ))}
             </div>
@@ -338,13 +411,24 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
           {entries.length > 0 && (
             <p className="mass-add-summary">
               {toAdd.length} to add
-              {entries.length - toAdd.length > 0 && `, ${entries.length - toAdd.length} skipped (already tracked)`}
+              {entries.length - toAdd.length > 0 &&
+                `, ${entries.length - toAdd.length} skipped (already tracked)`}
             </p>
           )}
 
           <div className="form-actions">
-            <button type="button" className="btn btn-secondary" onClick={onCancel}>Cancel</button>
-            <button type="submit" className="btn btn-primary" disabled={toAdd.length === 0}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={onCancel}
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={toAdd.length === 0}
+            >
               Add {toAdd.length || ''} Commander{toAdd.length !== 1 ? 's' : ''}
             </button>
           </div>
@@ -361,7 +445,7 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
         <CommanderSection
           label="Commander"
           data={formData.primary}
-          onChange={primary => setFormData({ ...formData, primary })}
+          onChange={(primary) => setFormData({ ...formData, primary })}
           required
           showAdvanced={showAdvanced}
         />
@@ -369,9 +453,11 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
         <button
           type="button"
           className="btn-advanced-toggle"
-          onClick={() => setShowAdvanced(v => !v)}
+          onClick={() => setShowAdvanced((v) => !v)}
         >
-          {showAdvanced ? '▲ Hide details' : '▼ Add details (stars, level, skills…)'}
+          {showAdvanced
+            ? '▲ Hide details'
+            : '▼ Add details (stars, level, skills…)'}
         </button>
 
         {showAdvanced && (
@@ -379,7 +465,9 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
             <label>Notes</label>
             <textarea
               value={formData.notes}
-              onChange={e => setFormData({ ...formData, notes: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, notes: e.target.value })
+              }
               placeholder="Optional notes..."
               rows={3}
             />
@@ -387,7 +475,13 @@ function CommanderForm({ commander, onSubmit, onCancel, onSubmitMany, existingCo
         )}
 
         <div className="form-actions">
-          <button type="button" className="btn btn-secondary" onClick={onCancel}>Cancel</button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={onCancel}
+          >
+            Cancel
+          </button>
           <button type="submit" className="btn btn-primary">
             {commander ? 'Save Changes' : 'Add Commander'}
           </button>

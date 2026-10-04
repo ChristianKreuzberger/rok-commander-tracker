@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom'
+import { normalizeName } from '../lib/commanders'
 import CommanderForm from '../components/CommanderForm'
 
 function EditCommanderPage({ commanders, onEdit }) {
@@ -6,7 +7,8 @@ function EditCommanderPage({ commanders, onEdit }) {
   const { name } = useParams()
 
   const commander = commanders.find(
-    c => c.primary.name.trim().toLowerCase() === decodeURIComponent(name).trim().toLowerCase()
+    (c) =>
+      normalizeName(c.primary.name) === normalizeName(decodeURIComponent(name)),
   )
 
   if (!commander) {
